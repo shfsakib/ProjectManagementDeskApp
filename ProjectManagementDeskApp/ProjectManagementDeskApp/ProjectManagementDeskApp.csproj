@@ -64,11 +64,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="class\master-class\Function.cs" />
+    <Compile Include="ProjectClass\Gateway\CompanyGateway.cs" />
+    <Compile Include="ProjectClass\Gateway\ProjectGateway.cs" />
+    <Compile Include="ProjectClass\Gateway\TicketGateway.cs" />
+    <Compile Include="ProjectClass\Gateway\UserGateway.cs" />
+    <Compile Include="ProjectClass\master-class\Function.cs" />
+    <Compile Include="ProjectClass\Model\CompanyModel.cs" />
+    <Compile Include="ProjectClass\Model\ProjectModel.cs" />
+    <Compile Include="ProjectClass\Model\TicketModel.cs" />
+    <Compile Include="ProjectClass\Model\UserModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\create-company.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\create-company.Designer.cs">
+      <DependentUpon>create-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\create-project.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\create-project.Designer.cs">
+      <DependentUpon>create-project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\create-ticket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\create-ticket.Designer.cs">
+      <DependentUpon>create-ticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\create-user-control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\create-user-control.Designer.cs">
+      <DependentUpon>create-user-control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\homeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\homeControl.Designer.cs">
+      <DependentUpon>homeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\dashboard.cs">
       <SubType>Form</SubType>
@@ -90,6 +128,21 @@
     <Compile Include="ui\register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ui\controller\create-company.resx">
+      <DependentUpon>create-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\create-project.resx">
+      <DependentUpon>create-project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\create-ticket.resx">
+      <DependentUpon>create-ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\create-user-control.resx">
+      <DependentUpon>create-user-control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\homeControl.resx">
+      <DependentUpon>homeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,7 +190,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data_processing.ico" />
+    <Content Include="ProgressImage\100.png" />
+    <Content Include="ProgressImage\25.png" />
+    <Content Include="ProgressImage\50.png" />
+    <Content Include="ProgressImage\75.png" />
     <Content Include="projecticon.ico" />
+    <None Include="Resources\employee.png" />
+    <None Include="Resources\project-management.png" />
+    <None Include="Resources\enterprise.png" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\home1.png" />
     <None Include="Resources\home.png" />
@@ -160,6 +220,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

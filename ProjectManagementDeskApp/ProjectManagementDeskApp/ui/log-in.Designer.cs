@@ -46,6 +46,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLoginClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.chkRemember = new System.Windows.Forms.CheckBox();
             this.panelUserName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelPass.SuspendLayout();
@@ -57,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(241, 115);
+            this.label1.Location = new System.Drawing.Point(249, 115);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 32);
             this.label1.TabIndex = 1;
@@ -106,7 +107,7 @@
             this.panelUserName.Controls.Add(this.txtEmail);
             this.panelUserName.Controls.Add(this.pictureBox2);
             this.panelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelUserName.Location = new System.Drawing.Point(117, 169);
+            this.panelUserName.Location = new System.Drawing.Point(120, 169);
             this.panelUserName.Name = "panelUserName";
             this.panelUserName.Size = new System.Drawing.Size(336, 38);
             this.panelUserName.TabIndex = 0;
@@ -137,7 +138,7 @@
             this.panelPass.Controls.Add(this.txtPass);
             this.panelPass.Controls.Add(this.pictureBox3);
             this.panelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPass.Location = new System.Drawing.Point(117, 213);
+            this.panelPass.Location = new System.Drawing.Point(120, 213);
             this.panelPass.Name = "panelPass";
             this.panelPass.Size = new System.Drawing.Size(336, 38);
             this.panelPass.TabIndex = 1;
@@ -169,7 +170,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(117, 284);
+            this.btnRegister.Location = new System.Drawing.Point(120, 284);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(157, 42);
             this.btnRegister.TabIndex = 10;
@@ -184,7 +185,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(296, 284);
+            this.btnLogin.Location = new System.Drawing.Point(299, 284);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(157, 42);
             this.btnLogin.TabIndex = 9;
@@ -196,7 +197,7 @@
             // 
             this.lnkForgot.AutoSize = true;
             this.lnkForgot.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkForgot.Location = new System.Drawing.Point(344, 258);
+            this.lnkForgot.Location = new System.Drawing.Point(347, 258);
             this.lnkForgot.Name = "lnkForgot";
             this.lnkForgot.Size = new System.Drawing.Size(109, 19);
             this.lnkForgot.TabIndex = 11;
@@ -206,7 +207,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProjectManagementDeskApp.Properties.Resources.rouded_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(229, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(237, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 71);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -248,11 +249,23 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
+            // chkRemember
+            // 
+            this.chkRemember.AutoSize = true;
+            this.chkRemember.Location = new System.Drawing.Point(120, 258);
+            this.chkRemember.Name = "chkRemember";
+            this.chkRemember.Size = new System.Drawing.Size(94, 17);
+            this.chkRemember.TabIndex = 17;
+            this.chkRemember.Text = "Remember me";
+            this.chkRemember.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 380);
+            this.Controls.Add(this.chkRemember);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.lnkForgot);
             this.Controls.Add(this.btnRegister);
@@ -305,6 +318,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lnkForgot;
         private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.CheckBox chkRemember;
     }
 }
 

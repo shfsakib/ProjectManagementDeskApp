@@ -11,7 +11,7 @@ using System.Net.NetworkInformation;
 using System.Web;
 using System.Windows.Forms;
 
-namespace DataFillingSoftDeskApp.Class
+namespace DataFillingSoftDeskApp.ProjectClass
 {
     public class Function
     {
@@ -34,35 +34,11 @@ namespace DataFillingSoftDeskApp.Class
                 con = new SqlConnection(Connection);
             }
         }
-
-        public string Connection1 = new SqlConnectionStringBuilder
-        {
-            DataSource = ".\\local",
-            InitialCatalog = "DataFillingDb",
-            UserID = "sa",
-            Password = "123456789",
-            MultipleActiveResultSets = true,
-            ConnectTimeout = 0,
-            Pooling = true,
-            MinPoolSize = 0,
-            MaxPoolSize = 4096
-        }.ToString();
-        public string Connection2 = new SqlConnectionStringBuilder
-        {
-            DataSource = ".\\local",
-            InitialCatalog = "DataFillingDb",
-            UserID = "sa",
-            Password = "ShfS@kib16",
-            MultipleActiveResultSets = true,
-            ConnectTimeout = 0,
-            Pooling = true,
-            MinPoolSize = 0,
-            MaxPoolSize = 4096
-        }.ToString();
+        //connection string
         public string Connection = new SqlConnectionStringBuilder
         {
-            DataSource = "(LocalDB)\\MSSQLLocalDB",
-            InitialCatalog = "DataFilling",
+            DataSource = ".\\local",
+            InitialCatalog = "ProjectManageDb",
             MultipleActiveResultSets = true,
             IntegratedSecurity = true,
             ConnectTimeout = 0,
@@ -375,8 +351,9 @@ namespace DataFillingSoftDeskApp.Class
                 reader.Close();
                 if (con.State != ConnectionState.Closed) con.Close();
             }
-            catch
+            catch (Exception ex)
             {
+                string message = ex.Message;
             }
             return id;
         }

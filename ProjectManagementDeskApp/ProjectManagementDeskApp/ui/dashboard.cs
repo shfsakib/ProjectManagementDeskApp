@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataFillingSoftDeskApp.ProjectClass;
+using ProjectManagementDeskApp.ui.controller;
 
 namespace ProjectManagementDeskApp.ui
 {
@@ -18,14 +20,20 @@ namespace ProjectManagementDeskApp.ui
         private bool assignCollapse = true;
         private bool updateCollapse = true;
         private bool deleteCollapse = true;
+        //declare class instance variable
+        private Function func;
         public dashboard()
         {
             InitializeComponent();
-            InitialCommand();
+            func = Function.GetInstance();
+            InitialCode();
         }
 
-        private void InitialCommand()
+        private void InitialCode()
         {
+            lblUserName.Text = Properties.Settings.Default.UserName;
+            homeControl homeControl = new homeControl();
+            panelChildContainer.Controls.Add(homeControl);
             //making panel scroll customizable
             flowLayoutPanel1.AutoScroll = false;
             flowLayoutPanel1.VerticalScroll.Maximum = 0;
@@ -35,23 +43,13 @@ namespace ProjectManagementDeskApp.ui
             flowLayoutPanel1.AutoScroll = true;
             //set user name from database in label
             lblUserName.Text = "";
-            if (Properties.Settings.Default.UserName.Length > 5)
-            {
-                lblUserName.Text = "Hello, " + Properties.Settings.Default.UserName.Substring(0, 5) + "...";
-            }
-            else
-                lblUserName.Text = "Hello, " + Properties.Settings.Default.UserName;
+            lblUserName.Text = "Hello, " + Properties.Settings.Default.UserName;
             //disable close button hover
-            btnLoginClose.FlatAppearance.MouseOverBackColor = btnLoginClose.BackColor;
-            btnLoginClose.BackColorChanged += (s, e) =>
+            btnDashClose.FlatAppearance.MouseOverBackColor = btnDashClose.BackColor;
+            btnDashClose.BackColorChanged += (s, e) =>
             {
-                btnLoginClose.FlatAppearance.MouseOverBackColor = btnLoginClose.BackColor;
+                btnDashClose.FlatAppearance.MouseOverBackColor = btnDashClose.BackColor;
             };
-        }
-        private void btnLoginClose_Click(object sender, EventArgs e)
-        {
-            //close application
-            Application.Exit();
         }
 
         private void btnLoginClose_MouseMove(object sender, MouseEventArgs e)
@@ -197,6 +195,55 @@ namespace ProjectManagementDeskApp.ui
         private void btnDelete_Click(object sender, EventArgs e)
         {
             deleteTimer.Enabled = true;
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            homeControl homeControl = new homeControl();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(homeControl);
+        }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            create_user_control createUserControl = new create_user_control();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(createUserControl);
+        }
+
+        private void btnDashClose_Click(object sender, EventArgs e)
+        {
+            //close application
+            DialogResult dialogResult = MessageBox.Show("Are you sure want to log out?", "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                Login login = new Login();
+                login.Show();
+            }
+
+        }
+
+        private void btnCreateProject_Click(object sender, EventArgs e)
+        {
+            create_project createProject = new create_project();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(createProject);
+        }
+
+        private void btnCreateCom_Click(object sender, EventArgs e)
+        {
+            create_company createCompany = new create_company();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(createCompany);
+        }
+
+        private void btnCreateTicket_Click(object sender, EventArgs e)
+        {
+            create_ticket createTicket = new create_ticket();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(createTicket);
         }
     }
 }
