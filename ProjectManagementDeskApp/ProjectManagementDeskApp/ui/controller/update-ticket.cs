@@ -13,13 +13,13 @@ using ProjectManagementDeskApp.ProjectClass.Model;
 
 namespace ProjectManagementDeskApp.ui.controller
 {
-    public partial class create_ticket : UserControl
+    public partial class update_ticket : UserControl
     {
         //Initializing variable name of class to create object
         private TicketModel ticketModel;
         private TicketGateway ticketGateway;
         private Function func;
-        public create_ticket()
+        public update_ticket()
         {
             InitializeComponent();
             ticketGateway = TicketGateway.GetInstance();
@@ -29,12 +29,13 @@ namespace ProjectManagementDeskApp.ui.controller
         }
         private void InitialCode()
         {
-            //change date format in datepicker
-            dateIssue.Format = DateTimePickerFormat.Custom;
-            dateIssue.CustomFormat = "dd/MM/yyyy";
-
+            
+            //autocomplete of ticket
+            func.AutoCompleteTextBox(txtSearch, $@"select * from (
+SELECT  CAST(TicketId AS nvarchar) txt FROM Ticket  
+WHERE TicketId LIKE '%%') A");
         }
-        private void btnCreateTicket_Click(object sender, EventArgs e)
+        private void btnUpdateTicket_Click(object sender, EventArgs e)
         {
             if (txtTicketId.Text == "")
             {
@@ -48,22 +49,41 @@ namespace ProjectManagementDeskApp.ui.controller
             {
                 ticketModel.TicketId = Convert.ToInt32(txtTicketId.Text);
                 ticketModel.IssueDate = dateIssue.Text;
-                bool ans = ticketGateway.Insert(ticketModel);//calling insert method from gateway
+                bool ans = ticketGateway.UpdateTicket(ticketModel);//calling insert method from gateway
                 if (ans)
                 {
-                    MessageBox.Show("Ticket Created Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ticket Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Refresh();
                     InitialCode();
                 }
                 else
                 {
-                    MessageBox.Show("Failed to create", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to update", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
         private void Refresh()
         {
-            dateIssue.Text = txtTicketId.Text = "";
+            txtSearch.Text = dateIssue.Text = txtTicketId.Text = "";
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text != "")
+            {
+                ticketModel = ticketGateway.GetByData(txtSearch.Text);
+                if (ticketModel == null)
+                {
+                    MessageBox.Show("No Data Found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                txtTicketId.Text = ticketModel.TicketId.ToString();
+                dateIssue.Text = ticketModel.IssueDate;
+            }
+            else
+            {
+                MessageBox.Show("No Data Found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

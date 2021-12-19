@@ -48,12 +48,13 @@
             // 
             // dateIssue
             // 
+            this.dateIssue.Enabled = false;
             this.dateIssue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateIssue.Location = new System.Drawing.Point(244, 190);
             this.dateIssue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateIssue.Name = "dateIssue";
-            this.dateIssue.Size = new System.Drawing.Size(212, 29);
+            this.dateIssue.Size = new System.Drawing.Size(298, 29);
             this.dateIssue.TabIndex = 54;
             // 
             // label6
@@ -72,8 +73,7 @@
             this.txtTicketId.Location = new System.Drawing.Point(244, 144);
             this.txtTicketId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTicketId.Name = "txtTicketId";
-            this.txtTicketId.ReadOnly = true;
-            this.txtTicketId.Size = new System.Drawing.Size(180, 29);
+            this.txtTicketId.Size = new System.Drawing.Size(298, 29);
             this.txtTicketId.TabIndex = 53;
             // 
             // label2
@@ -93,7 +93,7 @@
             this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateTicket.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateTicket.ForeColor = System.Drawing.Color.White;
-            this.btnCreateTicket.Location = new System.Drawing.Point(299, 238);
+            this.btnCreateTicket.Location = new System.Drawing.Point(385, 238);
             this.btnCreateTicket.Name = "btnCreateTicket";
             this.btnCreateTicket.Size = new System.Drawing.Size(157, 42);
             this.btnCreateTicket.TabIndex = 57;

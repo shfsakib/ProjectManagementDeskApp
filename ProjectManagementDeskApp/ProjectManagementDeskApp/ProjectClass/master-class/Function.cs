@@ -34,7 +34,7 @@ namespace DataFillingSoftDeskApp.ProjectClass
                 con = new SqlConnection(Connection);
             }
         }
-        //connection string
+        //non static connection string
         public string Connection = new SqlConnectionStringBuilder
         {
             DataSource = ".\\local",
@@ -47,6 +47,80 @@ namespace DataFillingSoftDeskApp.ProjectClass
             MaxPoolSize = 4096
         }.ToString();
 
+        public void BindComboBox(ComboBox ddl, string root, string query)
+        {
+            con = new SqlConnection(Connection);
+            DataTable dataTable = new DataTable();
+            DataRow dataRow;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+                dataRow = dataTable.NewRow();
+                dataRow.ItemArray = new object[] { 0, "--" + root.ToUpper() + "--" };
+                dataTable.Rows.InsertAt(dataRow, 0);
+                ddl.DisplayMember = "Name";
+                ddl.ValueMember = "ID";
+                ddl.DataSource = dataTable;
+
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+        }
+        public void AutoCompleteTextBox(TextBox textBox, string str)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(Connection);
+                AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(str, connection);
+                SqlDataReader dataReader;
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                    namesCollection.Add(dataReader["txt"].ToString());
+                dataReader.Close();
+                connection.Close();
+                //get suggested data to textbox
+                textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+                textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                textBox.AutoCompleteCustomSource = namesCollection;
+                 
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        public void AutoCompleteComboBox(ComboBox ComboBox, string Str)
+        {
+            SqlConnection Conn = new SqlConnection(Connection);
+            Conn.Open();
+            ComboBox.Items.Clear();
+            SqlCommand cmd = new SqlCommand(Str, Conn);
+            SqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(sdr);
+            ComboBox.DisplayMember = "txt";
+            ComboBox.DroppedDown = true;
+
+            List<string> list = new List<string>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(row.Field<string>("txt"));
+            }
+            ComboBox.Items.AddRange(list.ToArray<string>());
+            ComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            ComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            Conn.Close();
+        }
         public List<string> ListData(string sql)
         {
             List<string> list = new List<string>();

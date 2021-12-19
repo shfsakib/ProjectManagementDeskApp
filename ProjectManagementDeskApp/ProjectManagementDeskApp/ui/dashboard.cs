@@ -49,7 +49,7 @@ namespace ProjectManagementDeskApp.ui
             btnDashClose.BackColorChanged += (s, e) =>
             {
                 btnDashClose.FlatAppearance.MouseOverBackColor = btnDashClose.BackColor;
-            };
+            }; 
         }
 
         private void btnLoginClose_MouseMove(object sender, MouseEventArgs e)
@@ -244,6 +244,48 @@ namespace ProjectManagementDeskApp.ui
             create_ticket createTicket = new create_ticket();
             panelChildContainer.Controls.Clear();
             panelChildContainer.Controls.Add(createTicket);
+        }
+
+        private void btnAssignProjectToUser_Click(object sender, EventArgs e)
+        {
+            assign_project assignProject = new assign_project();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(assignProject);
+        }
+
+        private void btnAssignProToCom_Click(object sender, EventArgs e)
+        {
+            assign_project_to_company assignProjectToCompany = new assign_project_to_company();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(assignProjectToCompany);
+        }
+
+        private void btnAssignTicketToUser_Click(object sender, EventArgs e)
+        {
+            assign_ticket_to_user assignTicketToUser = new assign_ticket_to_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(assignTicketToUser);
+        }
+
+        private void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+            update_user updateUser = new update_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateUser);
+        }
+
+        private void btnUpdateCompany_Click(object sender, EventArgs e)
+        {
+            update_company updateCompany = new update_company();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateCompany);
+        }
+
+        private void btnUpdateTicket_Click(object sender, EventArgs e)
+        {
+            update_ticket updateTicket = new update_ticket();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateTicket);
         }
     }
 }

@@ -79,7 +79,7 @@
             this.txtProjectName.Location = new System.Drawing.Point(223, 176);
             this.txtProjectName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtProjectName.Name = "txtProjectName";
-            this.txtProjectName.Size = new System.Drawing.Size(295, 29);
+            this.txtProjectName.Size = new System.Drawing.Size(395, 29);
             this.txtProjectName.TabIndex = 48;
             // 
             // label8
@@ -94,12 +94,13 @@
             // 
             // dateStartDate
             // 
+            this.dateStartDate.Enabled = false;
             this.dateStartDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateStartDate.Location = new System.Drawing.Point(223, 215);
             this.dateStartDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateStartDate.Name = "dateStartDate";
-            this.dateStartDate.Size = new System.Drawing.Size(295, 29);
+            this.dateStartDate.Size = new System.Drawing.Size(395, 29);
             this.dateStartDate.TabIndex = 50;
             // 
             // label6
@@ -119,7 +120,7 @@
             this.dateEndDate.Location = new System.Drawing.Point(223, 254);
             this.dateEndDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateEndDate.Name = "dateEndDate";
-            this.dateEndDate.Size = new System.Drawing.Size(295, 29);
+            this.dateEndDate.Size = new System.Drawing.Size(395, 29);
             this.dateEndDate.TabIndex = 52;
             // 
             // label3
@@ -151,7 +152,7 @@
             "Low"});
             this.comboPriority.Location = new System.Drawing.Point(223, 292);
             this.comboPriority.Name = "comboPriority";
-            this.comboPriority.Size = new System.Drawing.Size(295, 29);
+            this.comboPriority.Size = new System.Drawing.Size(395, 29);
             this.comboPriority.TabIndex = 55;
             this.comboPriority.Text = "-- SELECT PRIORITY --";
             // 
@@ -162,7 +163,7 @@
             this.btnCreateProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateProject.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateProject.ForeColor = System.Drawing.Color.White;
-            this.btnCreateProject.Location = new System.Drawing.Point(361, 331);
+            this.btnCreateProject.Location = new System.Drawing.Point(461, 336);
             this.btnCreateProject.Name = "btnCreateProject";
             this.btnCreateProject.Size = new System.Drawing.Size(157, 42);
             this.btnCreateProject.TabIndex = 56;
@@ -193,7 +194,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "create_project";
-            this.Size = new System.Drawing.Size(1003, 598);
+            this.Size = new System.Drawing.Size(1103, 598);
             this.ResumeLayout(false);
             this.PerformLayout();
 

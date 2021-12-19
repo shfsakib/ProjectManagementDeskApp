@@ -61,5 +61,61 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
             return result;
         }
+        //Get Ticket by Data 
+        public TicketModel GetByData(string text)
+        {
+            TicketModel ticketModel = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                string query = $@"SELECT * FROM Ticket WHERE (CAST(TicketId AS nvarchar)='{text}')";
+                cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    ticketModel = new TicketModel();
+                    ticketModel.TicketId = Convert.ToInt32(reader["TicketId"]);
+                    ticketModel.IssueDate = reader["IssueDate"].ToString(); 
+                    reader.Close();
+                    con.Close();
+
+                }
+                return ticketModel;
+
+            }
+            catch (Exception ex)
+            {
+                return ticketModel;
+            }
+        }
+        //Update TicketId
+        internal bool UpdateTicket(TicketModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("UPDATE Ticket SET TicketId=@TicketId WHERE TicketId=@TicketId", con);
+                cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

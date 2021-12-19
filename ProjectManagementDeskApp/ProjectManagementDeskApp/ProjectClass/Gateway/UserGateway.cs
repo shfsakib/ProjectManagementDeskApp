@@ -21,8 +21,8 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
         public UserGateway()
         {
             //creating class object with singletone design pattern
-            function=Function.GetInstance();
-            con=new SqlConnection(function.Connection);
+            function = Function.GetInstance();
+            con = new SqlConnection(function.Connection);
         }
         //creating class instance
         public static UserGateway GetInstance()
@@ -67,5 +67,74 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
             return result;
         }
+
+        //Get User By Data
+        public UserModel GetUserByData(string text)
+        {
+            UserModel userModel = null;
+            try
+            {
+                string query = $@"SELECT * FROM Users WHERE (CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName='{text}') OR (FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar)='{text}')";
+                cmd = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    userModel = new UserModel();
+                    userModel.UserId = Convert.ToInt32(reader["UserId"]);
+                    userModel.FirstName = reader["FirstName"].ToString();
+                    userModel.SurName = reader["SurName"].ToString();
+                    userModel.DOB = reader["DOB"].ToString();
+                    userModel.Address = reader["Address"].ToString();
+                    userModel.Email = reader["Email"].ToString();
+                    userModel.Password = reader["Password"].ToString();
+                    userModel.UserType = reader["UserType"].ToString();
+                    reader.Close();
+                    con.Close();
+
+                }
+                return userModel;
+
+            }
+            catch (Exception ex)
+            {
+                return userModel;
+            }
+        }
+        //update user data
+        internal bool UpdateUser(UserModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("UPDATE Users SET FirstName=@FirstName,SurName=@SurName,DOB=@DOB,Address=@Address,Email=@Email,Password=@Password WHERE UserId=@UserId", con);
+                cmd.Parameters.AddWithValue("@FirstName", ob.FirstName);
+                cmd.Parameters.AddWithValue("@SurName", ob.SurName);
+                cmd.Parameters.AddWithValue("@DOB", ob.DOB);
+                cmd.Parameters.AddWithValue("@Address", ob.Address);
+                cmd.Parameters.AddWithValue("@Email", ob.Email);
+                cmd.Parameters.AddWithValue("@Password", ob.Password);
+                cmd.Parameters.AddWithValue("@UserId", ob.UserId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
+
     }
 }

@@ -64,11 +64,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProjectClass\Gateway\AssignProjectCompanyGateway.cs" />
+    <Compile Include="ProjectClass\Gateway\AssignProjectGateway.cs" />
+    <Compile Include="ProjectClass\Gateway\AssignTicketToUserGateway.cs" />
     <Compile Include="ProjectClass\Gateway\CompanyGateway.cs" />
     <Compile Include="ProjectClass\Gateway\ProjectGateway.cs" />
     <Compile Include="ProjectClass\Gateway\TicketGateway.cs" />
     <Compile Include="ProjectClass\Gateway\UserGateway.cs" />
     <Compile Include="ProjectClass\master-class\Function.cs" />
+    <Compile Include="ProjectClass\Model\AssignProjectCompanyModel.cs" />
+    <Compile Include="ProjectClass\Model\AssignProjectModel.cs" />
+    <Compile Include="ProjectClass\Model\AssignTicketToUserModel.cs" />
     <Compile Include="ProjectClass\Model\CompanyModel.cs" />
     <Compile Include="ProjectClass\Model\ProjectModel.cs" />
     <Compile Include="ProjectClass\Model\TicketModel.cs" />
@@ -77,6 +83,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\assign-project-to-company.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\assign-project-to-company.Designer.cs">
+      <DependentUpon>assign-project-to-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\assign-project-to-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\assign-project-to-user.Designer.cs">
+      <DependentUpon>assign-project-to-user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\assign-ticket-to-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\assign-ticket-to-user.Designer.cs">
+      <DependentUpon>assign-ticket-to-user.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\controller\create-company.cs">
       <SubType>UserControl</SubType>
@@ -108,6 +132,24 @@
     <Compile Include="ui\controller\homeControl.Designer.cs">
       <DependentUpon>homeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\controller\update-company.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-company.Designer.cs">
+      <DependentUpon>update-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\update-ticket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-ticket.Designer.cs">
+      <DependentUpon>update-ticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\update-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-user.Designer.cs">
+      <DependentUpon>update-user.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +170,15 @@
     <Compile Include="ui\register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ui\controller\assign-project-to-company.resx">
+      <DependentUpon>assign-project-to-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\assign-project-to-user.resx">
+      <DependentUpon>assign-project-to-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\assign-ticket-to-user.resx">
+      <DependentUpon>assign-ticket-to-user.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\create-company.resx">
       <DependentUpon>create-company.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\homeControl.resx">
       <DependentUpon>homeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-company.resx">
+      <DependentUpon>update-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-ticket.resx">
+      <DependentUpon>update-ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-user.resx">
+      <DependentUpon>update-user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -194,6 +254,7 @@
     <Content Include="ProgressImage\25.png" />
     <Content Include="ProgressImage\50.png" />
     <Content Include="ProgressImage\75.png" />
+    <Content Include="ProgressImage\0.png" />
     <Content Include="projecticon.ico" />
     <None Include="Resources\employee.png" />
     <None Include="Resources\project-management.png" />
