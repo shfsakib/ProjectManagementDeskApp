@@ -52,7 +52,7 @@
             // 
             this.txtCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCompanyName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompanyName.Location = new System.Drawing.Point(260, 191);
+            this.txtCompanyName.Location = new System.Drawing.Point(330, 193);
             this.txtCompanyName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(295, 29);
@@ -62,7 +62,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(128, 194);
+            this.label8.Location = new System.Drawing.Point(198, 196);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 21);
             this.label8.TabIndex = 53;
@@ -71,7 +71,7 @@
             // txtCompanyId
             // 
             this.txtCompanyId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompanyId.Location = new System.Drawing.Point(260, 154);
+            this.txtCompanyId.Location = new System.Drawing.Point(330, 156);
             this.txtCompanyId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCompanyId.Name = "txtCompanyId";
             this.txtCompanyId.ReadOnly = true;
@@ -82,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(157, 157);
+            this.label2.Location = new System.Drawing.Point(227, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 21);
             this.label2.TabIndex = 50;
@@ -92,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(111, 230);
+            this.label3.Location = new System.Drawing.Point(181, 232);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 21);
             this.label3.TabIndex = 54;
@@ -102,7 +102,7 @@
             // 
             this.txtCompanyLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCompanyLocation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompanyLocation.Location = new System.Drawing.Point(260, 228);
+            this.txtCompanyLocation.Location = new System.Drawing.Point(330, 230);
             this.txtCompanyLocation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCompanyLocation.Multiline = true;
             this.txtCompanyLocation.Name = "txtCompanyLocation";
@@ -116,7 +116,7 @@
             this.btnCreateProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateProject.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateProject.ForeColor = System.Drawing.Color.White;
-            this.btnCreateProject.Location = new System.Drawing.Point(507, 329);
+            this.btnCreateProject.Location = new System.Drawing.Point(577, 331);
             this.btnCreateProject.Name = "btnCreateProject";
             this.btnCreateProject.Size = new System.Drawing.Size(197, 42);
             this.btnCreateProject.TabIndex = 57;

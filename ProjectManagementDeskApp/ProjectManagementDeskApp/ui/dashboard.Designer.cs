@@ -58,6 +58,9 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.panelUpdate = new System.Windows.Forms.Panel();
+            this.btnUpdateAssignTicToUser = new System.Windows.Forms.Button();
+            this.btnUpdateProToCom = new System.Windows.Forms.Button();
+            this.btnUpdateTicket = new System.Windows.Forms.Button();
             this.btnUpdateProject = new System.Windows.Forms.Button();
             this.btnUpdateCompany = new System.Windows.Forms.Button();
             this.btnUpdateAssignProToUser = new System.Windows.Forms.Button();
@@ -77,9 +80,6 @@
             this.containerPanel = new System.Windows.Forms.Panel();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
-            this.btnUpdateTicket = new System.Windows.Forms.Button();
-            this.btnUpdateProToCom = new System.Windows.Forms.Button();
-            this.btnUpdateAssignTicToUser = new System.Windows.Forms.Button();
             this.panelChildContainer = new System.Windows.Forms.Panel();
             this.btnDashClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -451,6 +451,60 @@
             this.panelUpdate.Size = new System.Drawing.Size(218, 48);
             this.panelUpdate.TabIndex = 16;
             // 
+            // btnUpdateAssignTicToUser
+            // 
+            this.btnUpdateAssignTicToUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnUpdateAssignTicToUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdateAssignTicToUser.FlatAppearance.BorderSize = 0;
+            this.btnUpdateAssignTicToUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnUpdateAssignTicToUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateAssignTicToUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateAssignTicToUser.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateAssignTicToUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateAssignTicToUser.Location = new System.Drawing.Point(0, 353);
+            this.btnUpdateAssignTicToUser.Name = "btnUpdateAssignTicToUser";
+            this.btnUpdateAssignTicToUser.Size = new System.Drawing.Size(218, 58);
+            this.btnUpdateAssignTicToUser.TabIndex = 28;
+            this.btnUpdateAssignTicToUser.Text = "Update Assigned Ticket to User";
+            this.btnUpdateAssignTicToUser.UseVisualStyleBackColor = false;
+            this.btnUpdateAssignTicToUser.Click += new System.EventHandler(this.btnUpdateAssignTicToUser_Click);
+            // 
+            // btnUpdateProToCom
+            // 
+            this.btnUpdateProToCom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnUpdateProToCom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdateProToCom.FlatAppearance.BorderSize = 0;
+            this.btnUpdateProToCom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnUpdateProToCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateProToCom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateProToCom.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateProToCom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateProToCom.Location = new System.Drawing.Point(0, 296);
+            this.btnUpdateProToCom.Name = "btnUpdateProToCom";
+            this.btnUpdateProToCom.Size = new System.Drawing.Size(218, 58);
+            this.btnUpdateProToCom.TabIndex = 27;
+            this.btnUpdateProToCom.Text = "Update Assigned Project to Company";
+            this.btnUpdateProToCom.UseVisualStyleBackColor = false;
+            this.btnUpdateProToCom.Click += new System.EventHandler(this.btnUpdateProToCom_Click);
+            // 
+            // btnUpdateTicket
+            // 
+            this.btnUpdateTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnUpdateTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdateTicket.FlatAppearance.BorderSize = 0;
+            this.btnUpdateTicket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnUpdateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTicket.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateTicket.Location = new System.Drawing.Point(0, 142);
+            this.btnUpdateTicket.Name = "btnUpdateTicket";
+            this.btnUpdateTicket.Size = new System.Drawing.Size(218, 48);
+            this.btnUpdateTicket.TabIndex = 26;
+            this.btnUpdateTicket.Text = "Update Ticket";
+            this.btnUpdateTicket.UseVisualStyleBackColor = false;
+            this.btnUpdateTicket.Click += new System.EventHandler(this.btnUpdateTicket_Click);
+            // 
             // btnUpdateProject
             // 
             this.btnUpdateProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
@@ -467,6 +521,7 @@
             this.btnUpdateProject.TabIndex = 25;
             this.btnUpdateProject.Text = "Update Project";
             this.btnUpdateProject.UseVisualStyleBackColor = false;
+            this.btnUpdateProject.Click += new System.EventHandler(this.btnUpdateProject_Click);
             // 
             // btnUpdateCompany
             // 
@@ -502,6 +557,7 @@
             this.btnUpdateAssignProToUser.TabIndex = 23;
             this.btnUpdateAssignProToUser.Text = "Update Assigned Project to User";
             this.btnUpdateAssignProToUser.UseVisualStyleBackColor = false;
+            this.btnUpdateAssignProToUser.Click += new System.EventHandler(this.btnUpdateAssignProToUser_Click);
             // 
             // btnUpdateUser
             // 
@@ -707,58 +763,6 @@
             // 
             this.deleteTimer.Interval = 20;
             this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
-            // 
-            // btnUpdateTicket
-            // 
-            this.btnUpdateTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
-            this.btnUpdateTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnUpdateTicket.FlatAppearance.BorderSize = 0;
-            this.btnUpdateTicket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnUpdateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTicket.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateTicket.Location = new System.Drawing.Point(0, 142);
-            this.btnUpdateTicket.Name = "btnUpdateTicket";
-            this.btnUpdateTicket.Size = new System.Drawing.Size(218, 48);
-            this.btnUpdateTicket.TabIndex = 26;
-            this.btnUpdateTicket.Text = "Update Ticket";
-            this.btnUpdateTicket.UseVisualStyleBackColor = false;
-            this.btnUpdateTicket.Click += new System.EventHandler(this.btnUpdateTicket_Click);
-            // 
-            // btnUpdateProToCom
-            // 
-            this.btnUpdateProToCom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
-            this.btnUpdateProToCom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnUpdateProToCom.FlatAppearance.BorderSize = 0;
-            this.btnUpdateProToCom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnUpdateProToCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateProToCom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProToCom.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateProToCom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateProToCom.Location = new System.Drawing.Point(0, 296);
-            this.btnUpdateProToCom.Name = "btnUpdateProToCom";
-            this.btnUpdateProToCom.Size = new System.Drawing.Size(218, 58);
-            this.btnUpdateProToCom.TabIndex = 27;
-            this.btnUpdateProToCom.Text = "Update Assigned Project to Company";
-            this.btnUpdateProToCom.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdateAssignTicToUser
-            // 
-            this.btnUpdateAssignTicToUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
-            this.btnUpdateAssignTicToUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnUpdateAssignTicToUser.FlatAppearance.BorderSize = 0;
-            this.btnUpdateAssignTicToUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnUpdateAssignTicToUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateAssignTicToUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAssignTicToUser.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateAssignTicToUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateAssignTicToUser.Location = new System.Drawing.Point(0, 353);
-            this.btnUpdateAssignTicToUser.Name = "btnUpdateAssignTicToUser";
-            this.btnUpdateAssignTicToUser.Size = new System.Drawing.Size(218, 58);
-            this.btnUpdateAssignTicToUser.TabIndex = 28;
-            this.btnUpdateAssignTicToUser.Text = "Update Assigned Ticket to User";
-            this.btnUpdateAssignTicToUser.UseVisualStyleBackColor = false;
             // 
             // panelChildContainer
             // 

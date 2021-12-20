@@ -287,5 +287,33 @@ namespace ProjectManagementDeskApp.ui
             panelChildContainer.Controls.Clear();
             panelChildContainer.Controls.Add(updateTicket);
         }
+
+        private void btnUpdateProject_Click(object sender, EventArgs e)
+        {
+            update_project updateProject = new update_project();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateProject);
+        }
+
+        private void btnUpdateAssignProToUser_Click(object sender, EventArgs e)
+        {
+            update_assigned_project_to_user updateAssignedProjectToUser = new update_assigned_project_to_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateAssignedProjectToUser);
+        }
+
+        private void btnUpdateProToCom_Click(object sender, EventArgs e)
+        {
+            update_assign_project_to_company updateAssignProjectToCompany = new update_assign_project_to_company();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateAssignProjectToCompany);
+        }
+
+        private void btnUpdateAssignTicToUser_Click(object sender, EventArgs e)
+        {
+            update_assigned_ticket_to_user updateAssignedTicketToUser = new update_assigned_ticket_to_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(updateAssignedTicketToUser);
+        }
     }
 }

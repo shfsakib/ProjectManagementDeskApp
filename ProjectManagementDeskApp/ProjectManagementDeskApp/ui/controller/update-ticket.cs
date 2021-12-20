@@ -29,7 +29,6 @@ namespace ProjectManagementDeskApp.ui.controller
         }
         private void InitialCode()
         {
-            
             //autocomplete of ticket
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(TicketId AS nvarchar) txt FROM Ticket  
@@ -49,7 +48,7 @@ WHERE TicketId LIKE '%%') A");
             {
                 ticketModel.TicketId = Convert.ToInt32(txtTicketId.Text);
                 ticketModel.IssueDate = dateIssue.Text;
-                bool ans = ticketGateway.UpdateTicket(ticketModel);//calling insert method from gateway
+                bool ans = ticketGateway.UpdateTicket(ticketModel, txtSearch.Text);//calling insert method from gateway
                 if (ans)
                 {
                     MessageBox.Show("Ticket Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -66,6 +65,9 @@ WHERE TicketId LIKE '%%') A");
         private void Refresh()
         {
             txtSearch.Text = dateIssue.Text = txtTicketId.Text = "";
+            func.AutoCompleteTextBox(txtSearch, $@"select * from (
+SELECT  CAST(TicketId AS nvarchar) txt FROM Ticket  
+WHERE TicketId LIKE '%%') A");
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {

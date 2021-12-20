@@ -51,7 +51,7 @@
             this.dateIssue.Enabled = false;
             this.dateIssue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateIssue.Location = new System.Drawing.Point(244, 190);
+            this.dateIssue.Location = new System.Drawing.Point(355, 225);
             this.dateIssue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateIssue.Name = "dateIssue";
             this.dateIssue.Size = new System.Drawing.Size(298, 29);
@@ -61,7 +61,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(154, 194);
+            this.label6.Location = new System.Drawing.Point(265, 229);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 21);
             this.label6.TabIndex = 55;
@@ -70,7 +70,7 @@
             // txtTicketId
             // 
             this.txtTicketId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTicketId.Location = new System.Drawing.Point(244, 144);
+            this.txtTicketId.Location = new System.Drawing.Point(355, 179);
             this.txtTicketId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTicketId.Name = "txtTicketId";
             this.txtTicketId.Size = new System.Drawing.Size(298, 29);
@@ -80,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(168, 147);
+            this.label2.Location = new System.Drawing.Point(279, 182);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 21);
             this.label2.TabIndex = 52;
@@ -93,7 +93,7 @@
             this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateTicket.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateTicket.ForeColor = System.Drawing.Color.White;
-            this.btnCreateTicket.Location = new System.Drawing.Point(385, 238);
+            this.btnCreateTicket.Location = new System.Drawing.Point(496, 273);
             this.btnCreateTicket.Name = "btnCreateTicket";
             this.btnCreateTicket.Size = new System.Drawing.Size(157, 42);
             this.btnCreateTicket.TabIndex = 57;

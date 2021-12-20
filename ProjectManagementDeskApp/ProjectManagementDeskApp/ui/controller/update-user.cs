@@ -37,8 +37,9 @@ namespace ProjectManagementDeskApp.ui.controller
             dateDob.CustomFormat = "dd/MM/yyyy";
             //focus first name
             txtFirstName.Focus();
-            //autocomplete search box only top 10 data from database
-            // func.AutoCompleteTextBox(txtSearch, $@"SELECT txt FROM (SELECT TOP 10 CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users)A  WHERE A.txt LIKE '%{txtSearch.Text}%'");
+            //label text declare
+            lblSearch.Text = "Search by User Id\r\n or Name:";
+            //autocomplete search box data from database
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users  
 WHERE UserId LIKE '%%'
@@ -108,7 +109,7 @@ WHERE FirstName LIKE '%%' ) A");
                 userModel.Address = txtAddress.Text;
                 userModel.Email = txtEmail.Text;
                 userModel.Password = txtPassword.Text;
-                bool ans = userGateway.UpdateUser(userModel);
+                bool ans = userGateway.UpdateUser(userModel); //calling method from gateway
                 if (ans)
                 {
                     MessageBox.Show("User data updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -124,8 +125,14 @@ WHERE FirstName LIKE '%%' ) A");
         private void Refresh()
         {
             txtSearch.Text = txtFirstName.Text = txtLastName.Text =
-                  txtEmail.Text = txtPassword.Text = txtAddress.Text = "";
+                  txtEmail.Text = txtPassword.Text = txtAddress.Text = txtUserId.Text = "";
             dateDob.Text = "";
+            func.AutoCompleteTextBox(txtSearch, $@"select * from (
+SELECT  CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users  
+WHERE UserId LIKE '%%'
+union
+SELECT  FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar) txt FROM Users  
+WHERE FirstName LIKE '%%' ) A");
         }
     }
 }

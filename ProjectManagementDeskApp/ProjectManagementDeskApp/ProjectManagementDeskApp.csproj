@@ -79,6 +79,9 @@
     <Compile Include="ProjectClass\Model\ProjectModel.cs" />
     <Compile Include="ProjectClass\Model\TicketModel.cs" />
     <Compile Include="ProjectClass\Model\UserModel.cs" />
+    <Compile Include="ProjectClass\Model\ViewModel\AssignProjectCompanyViewModel.cs" />
+    <Compile Include="ProjectClass\Model\ViewModel\AssignProjectViewModel.cs" />
+    <Compile Include="ProjectClass\Model\ViewModel\AssignTicketToUserViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,11 +135,35 @@
     <Compile Include="ui\controller\homeControl.Designer.cs">
       <DependentUpon>homeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\controller\update-assigned-project-to-company.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-assigned-project-to-company.Designer.cs">
+      <DependentUpon>update-assigned-project-to-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\update-assigned-project-to-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-assigned-project-to-user.Designer.cs">
+      <DependentUpon>update-assigned-project-to-user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\update-assigned-ticket-to-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-assigned-ticket-to-user.Designer.cs">
+      <DependentUpon>update-assigned-ticket-to-user.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\controller\update-company.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ui\controller\update-company.Designer.cs">
       <DependentUpon>update-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\update-project.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\update-project.Designer.cs">
+      <DependentUpon>update-project.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\controller\update-ticket.cs">
       <SubType>UserControl</SubType>
@@ -194,8 +221,20 @@
     <EmbeddedResource Include="ui\controller\homeControl.resx">
       <DependentUpon>homeControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-assigned-project-to-company.resx">
+      <DependentUpon>update-assigned-project-to-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-assigned-project-to-user.resx">
+      <DependentUpon>update-assigned-project-to-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-assigned-ticket-to-user.resx">
+      <DependentUpon>update-assigned-ticket-to-user.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\update-company.resx">
       <DependentUpon>update-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\update-project.resx">
+      <DependentUpon>update-project.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\update-ticket.resx">
       <DependentUpon>update-ticket.cs</DependentUpon>
@@ -256,6 +295,7 @@
     <Content Include="ProgressImage\75.png" />
     <Content Include="ProgressImage\0.png" />
     <Content Include="projecticon.ico" />
+    <None Include="Resources\progress-bar-latest-border.png" />
     <None Include="Resources\employee.png" />
     <None Include="Resources\project-management.png" />
     <None Include="Resources\enterprise.png" />

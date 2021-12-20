@@ -59,7 +59,7 @@
             this.comboUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboUser.FormattingEnabled = true;
-            this.comboUser.Location = new System.Drawing.Point(261, 178);
+            this.comboUser.Location = new System.Drawing.Point(319, 214);
             this.comboUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboUser.Name = "comboUser";
             this.comboUser.Size = new System.Drawing.Size(402, 29);
@@ -71,7 +71,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(193, 182);
+            this.label3.Location = new System.Drawing.Point(251, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 21);
             this.label3.TabIndex = 48;
@@ -83,7 +83,7 @@
             this.comboTicket.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboTicket.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTicket.FormattingEnabled = true;
-            this.comboTicket.Location = new System.Drawing.Point(261, 141);
+            this.comboTicket.Location = new System.Drawing.Point(319, 177);
             this.comboTicket.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboTicket.Name = "comboTicket";
             this.comboTicket.Size = new System.Drawing.Size(402, 29);
@@ -94,7 +94,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 144);
+            this.label2.Location = new System.Drawing.Point(243, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 21);
             this.label2.TabIndex = 50;
@@ -105,18 +105,18 @@
             this.dateIssue.Enabled = false;
             this.dateIssue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateIssue.Location = new System.Drawing.Point(261, 215);
+            this.dateIssue.Location = new System.Drawing.Point(319, 251);
             this.dateIssue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateIssue.Name = "dateIssue";
             this.dateIssue.Size = new System.Drawing.Size(295, 29);
-            this.dateIssue.TabIndex = 2;
+            this.dateIssue.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(162, 219);
+            this.label6.Location = new System.Drawing.Point(220, 255);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 21);
             this.label6.TabIndex = 57;
@@ -129,10 +129,10 @@
             this.btnAssignTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssignTicket.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssignTicket.ForeColor = System.Drawing.Color.White;
-            this.btnAssignTicket.Location = new System.Drawing.Point(448, 333);
+            this.btnAssignTicket.Location = new System.Drawing.Point(506, 369);
             this.btnAssignTicket.Name = "btnAssignTicket";
             this.btnAssignTicket.Size = new System.Drawing.Size(215, 42);
-            this.btnAssignTicket.TabIndex = 3;
+            this.btnAssignTicket.TabIndex = 4;
             this.btnAssignTicket.Text = "Assign Ticket To User";
             this.btnAssignTicket.UseVisualStyleBackColor = false;
             this.btnAssignTicket.Click += new System.EventHandler(this.btnAssignTicket_Click);
@@ -143,18 +143,18 @@
             this.comboProject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboProject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboProject.FormattingEnabled = true;
-            this.comboProject.Location = new System.Drawing.Point(261, 252);
+            this.comboProject.Location = new System.Drawing.Point(319, 288);
             this.comboProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboProject.Name = "comboProject";
             this.comboProject.Size = new System.Drawing.Size(402, 29);
-            this.comboProject.TabIndex = 58;
+            this.comboProject.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(177, 255);
+            this.label4.Location = new System.Drawing.Point(235, 291);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 21);
             this.label4.TabIndex = 59;
@@ -165,18 +165,18 @@
             this.comboCompany.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboCompany.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCompany.FormattingEnabled = true;
-            this.comboCompany.Location = new System.Drawing.Point(261, 289);
+            this.comboCompany.Location = new System.Drawing.Point(319, 325);
             this.comboCompany.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboCompany.Name = "comboCompany";
             this.comboCompany.Size = new System.Drawing.Size(402, 29);
-            this.comboCompany.TabIndex = 67;
+            this.comboCompany.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(158, 293);
+            this.label5.Location = new System.Drawing.Point(216, 329);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 21);
             this.label5.TabIndex = 68;

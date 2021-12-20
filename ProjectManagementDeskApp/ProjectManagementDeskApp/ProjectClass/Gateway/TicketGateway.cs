@@ -92,7 +92,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
         }
         //Update TicketId
-        internal bool UpdateTicket(TicketModel ob)
+        internal bool UpdateTicket(TicketModel ob,string id)
         {
             bool result = false;
             SqlTransaction transaction = null;
@@ -101,8 +101,9 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE Ticket SET TicketId=@TicketId WHERE TicketId=@TicketId", con);
+                cmd = new SqlCommand($@"UPDATE Ticket SET TicketId=@TicketId WHERE TicketId='{id}' AND IssueDate=@IssueDate", con);
                 cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
+                cmd.Parameters.AddWithValue("@IssueDate", ob.IssueDate);
 
                 cmd.Transaction = transaction;
                 cmd.ExecuteNonQuery();

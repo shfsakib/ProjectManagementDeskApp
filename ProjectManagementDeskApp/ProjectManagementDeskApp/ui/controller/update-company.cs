@@ -25,6 +25,7 @@ namespace ProjectManagementDeskApp.ui.controller
             companyGateway = CompanyGateway.GetInstance();
             companyModel = CompanyModel.GetInstance();
             func = Function.GetInstance();
+            //autocomplete
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(CompanyId AS nvarchar) + ' | '+CompanyName txt FROM Company  
 WHERE CompanyId LIKE '%%'
@@ -55,6 +56,12 @@ WHERE CompanyName LIKE '%%' ) A");
         private void Refresh()
         {
             txtSearch.Text = txtCompanyId.Text = txtCompanyName.Text = txtCompanyLocation.Text = "";
+            func.AutoCompleteTextBox(txtSearch, $@"select * from (
+SELECT  CAST(CompanyId AS nvarchar) + ' | '+CompanyName txt FROM Company  
+WHERE CompanyId LIKE '%%'
+union
+SELECT  CompanyName + ' | '+CAST(CompanyId AS nvarchar) txt FROM Company  
+WHERE CompanyName LIKE '%%' ) A");
         }
 
         private void btnUpdateCompany_Click(object sender, EventArgs e)
@@ -73,7 +80,7 @@ WHERE CompanyName LIKE '%%' ) A");
                 companyModel.CompanyId = Convert.ToInt32(txtCompanyId.Text);
                 companyModel.CompanyName = txtCompanyName.Text;
                 companyModel.CompanyLocation = txtCompanyLocation.Text;
-                bool ans = companyGateway.UpdateCompany(companyModel);//calling insert method from gateway
+                bool ans = companyGateway.UpdateCompany(companyModel);//calling method from gateway
                 if (ans)
                 {
                     MessageBox.Show("Company Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
