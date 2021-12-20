@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(register));
             this.btnLoginClose = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -58,6 +59,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +78,7 @@
             this.btnLoginClose.Name = "btnLoginClose";
             this.btnLoginClose.Size = new System.Drawing.Size(26, 22);
             this.btnLoginClose.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btnLoginClose, "Exit");
             this.btnLoginClose.UseVisualStyleBackColor = false;
             this.btnLoginClose.Click += new System.EventHandler(this.btnLoginClose_Click);
             // 
@@ -361,6 +364,7 @@
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(26, 22);
             this.btnMinimize.TabIndex = 32;
+            this.toolTip1.SetToolTip(this.btnMinimize, "Minimize");
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -453,5 +457,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

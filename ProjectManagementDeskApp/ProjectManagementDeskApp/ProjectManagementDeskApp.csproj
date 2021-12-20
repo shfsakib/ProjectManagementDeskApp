@@ -129,6 +129,48 @@
     <Compile Include="ui\controller\create-user-control.Designer.cs">
       <DependentUpon>create-user-control.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\controller\delete-assigned-project-to-company.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-assigned-project-to-company.Designer.cs">
+      <DependentUpon>delete-assigned-project-to-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\delete-assigned-project-to-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-assigned-project-to-user.Designer.cs">
+      <DependentUpon>delete-assigned-project-to-user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\delete-assigned-ticket-to-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-assigned-ticket-to-user.Designer.cs">
+      <DependentUpon>delete-assigned-ticket-to-user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\delete-company.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-company.Designer.cs">
+      <DependentUpon>delete-company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\delete-project.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-project.Designer.cs">
+      <DependentUpon>delete-project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\delete-ticket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-ticket.Designer.cs">
+      <DependentUpon>delete-ticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\delete-user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\delete-user.Designer.cs">
+      <DependentUpon>delete-user.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\controller\homeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +219,12 @@
     <Compile Include="ui\controller\update-user.Designer.cs">
       <DependentUpon>update-user.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\controller\view-data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\view-data.Designer.cs">
+      <DependentUpon>view-data.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +266,27 @@
     <EmbeddedResource Include="ui\controller\create-user-control.resx">
       <DependentUpon>create-user-control.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-assigned-project-to-company.resx">
+      <DependentUpon>delete-assigned-project-to-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-assigned-project-to-user.resx">
+      <DependentUpon>delete-assigned-project-to-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-assigned-ticket-to-user.resx">
+      <DependentUpon>delete-assigned-ticket-to-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-company.resx">
+      <DependentUpon>delete-company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-project.resx">
+      <DependentUpon>delete-project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-ticket.resx">
+      <DependentUpon>delete-ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\delete-user.resx">
+      <DependentUpon>delete-user.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\homeControl.resx">
       <DependentUpon>homeControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\update-user.resx">
       <DependentUpon>update-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\view-data.resx">
+      <DependentUpon>view-data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>

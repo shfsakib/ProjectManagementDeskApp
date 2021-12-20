@@ -75,6 +75,7 @@
             this.txtTicketId.Name = "txtTicketId";
             this.txtTicketId.Size = new System.Drawing.Size(298, 29);
             this.txtTicketId.TabIndex = 53;
+            this.txtTicketId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTicketId_KeyPress);
             // 
             // label2
             // 

@@ -315,5 +315,61 @@ namespace ProjectManagementDeskApp.ui
             panelChildContainer.Controls.Clear();
             panelChildContainer.Controls.Add(updateAssignedTicketToUser);
         }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            delete_user deleteUser = new delete_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteUser);
+        }
+
+        private void btnDeleteTicket_Click(object sender, EventArgs e)
+        {
+            delete_ticket deleteTicket = new delete_ticket();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteTicket);
+        }
+
+        private void btnDeleteCompany_Click(object sender, EventArgs e)
+        {
+            delete_company deleteCompany = new delete_company();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteCompany);
+        }
+
+        private void btnDeleteAssignProToUser_Click(object sender, EventArgs e)
+        {
+            delete_assigned_project_to_user deleteAssignedProjectToUser=new delete_assigned_project_to_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteAssignedProjectToUser);
+        }
+
+        private void btnDeleteAssignProToCom_Click(object sender, EventArgs e)
+        {
+            delete_assigned_project_to_company deleteAssignedProjectToCompany = new delete_assigned_project_to_company();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteAssignedProjectToCompany);
+        }
+
+        private void btnDeleteAssignTickToUser_Click(object sender, EventArgs e)
+        {
+            delete_assigned_ticket_to_user deleteAssignedTicketToUser = new delete_assigned_ticket_to_user();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteAssignedTicketToUser);
+        }
+
+        private void btnDeleteProject_Click(object sender, EventArgs e)
+        {
+            delete_project deleteProject = new delete_project();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(deleteProject);
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            view_data viewData=new view_data();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(viewData);
+        }
     }
 }

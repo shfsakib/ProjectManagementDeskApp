@@ -121,5 +121,31 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
             return result;
         }
+        //Delete company
+        internal bool DeleteCompany(CompanyModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("DELETE FROM Company WHERE CompanyId=@CompanyId", con);
+                cmd.Parameters.AddWithValue("@CompanyId", ob.CompanyId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

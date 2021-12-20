@@ -68,7 +68,7 @@
             this.panelDelete = new System.Windows.Forms.Panel();
             this.btnDeleteCompany = new System.Windows.Forms.Button();
             this.btnDeleteTicket = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteProject = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnPrediction = new System.Windows.Forms.Button();
@@ -80,6 +80,9 @@
             this.containerPanel = new System.Windows.Forms.Panel();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.deleteTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnDeleteAssignTickToUser = new System.Windows.Forms.Button();
+            this.btnDeleteAssignProToCom = new System.Windows.Forms.Button();
+            this.btnDeleteAssignProToUser = new System.Windows.Forms.Button();
             this.panelChildContainer = new System.Windows.Forms.Panel();
             this.btnDashClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -427,7 +430,6 @@
             this.btnHome.MaximumSize = new System.Drawing.Size(218, 48);
             this.btnHome.MinimumSize = new System.Drawing.Size(218, 48);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(0, 0, 11, 0);
             this.btnHome.Size = new System.Drawing.Size(218, 48);
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
@@ -579,13 +581,16 @@
             // 
             // panelDelete
             // 
+            this.panelDelete.Controls.Add(this.btnDeleteAssignTickToUser);
             this.panelDelete.Controls.Add(this.btnDeleteCompany);
+            this.panelDelete.Controls.Add(this.btnDeleteAssignProToUser);
+            this.panelDelete.Controls.Add(this.btnDeleteAssignProToCom);
             this.panelDelete.Controls.Add(this.btnDeleteTicket);
-            this.panelDelete.Controls.Add(this.button2);
+            this.panelDelete.Controls.Add(this.btnDeleteProject);
             this.panelDelete.Controls.Add(this.btnDeleteUser);
             this.panelDelete.Controls.Add(this.btnDelete);
             this.panelDelete.Location = new System.Drawing.Point(3, 333);
-            this.panelDelete.MaximumSize = new System.Drawing.Size(218, 236);
+            this.panelDelete.MaximumSize = new System.Drawing.Size(218, 420);
             this.panelDelete.MinimumSize = new System.Drawing.Size(218, 48);
             this.panelDelete.Name = "panelDelete";
             this.panelDelete.Size = new System.Drawing.Size(218, 48);
@@ -607,6 +612,7 @@
             this.btnDeleteCompany.TabIndex = 30;
             this.btnDeleteCompany.Text = "Delete Company";
             this.btnDeleteCompany.UseVisualStyleBackColor = false;
+            this.btnDeleteCompany.Click += new System.EventHandler(this.btnDeleteCompany_Click);
             // 
             // btnDeleteTicket
             // 
@@ -624,23 +630,25 @@
             this.btnDeleteTicket.TabIndex = 29;
             this.btnDeleteTicket.Text = "Delete Ticket";
             this.btnDeleteTicket.UseVisualStyleBackColor = false;
+            this.btnDeleteTicket.Click += new System.EventHandler(this.btnDeleteTicket_Click);
             // 
-            // button2
+            // btnDeleteProject
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(0, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(218, 48);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Delete Project";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDeleteProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnDeleteProject.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteProject.FlatAppearance.BorderSize = 0;
+            this.btnDeleteProject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnDeleteProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteProject.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProject.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteProject.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteProject.Location = new System.Drawing.Point(0, 96);
+            this.btnDeleteProject.Name = "btnDeleteProject";
+            this.btnDeleteProject.Size = new System.Drawing.Size(218, 48);
+            this.btnDeleteProject.TabIndex = 28;
+            this.btnDeleteProject.Text = "Delete Project";
+            this.btnDeleteProject.UseVisualStyleBackColor = false;
+            this.btnDeleteProject.Click += new System.EventHandler(this.btnDeleteProject_Click);
             // 
             // btnDeleteUser
             // 
@@ -658,6 +666,7 @@
             this.btnDeleteUser.TabIndex = 27;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = false;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // btnReport
             // 
@@ -671,7 +680,6 @@
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReport.Location = new System.Drawing.Point(3, 387);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnReport.Size = new System.Drawing.Size(218, 48);
             this.btnReport.TabIndex = 31;
             this.btnReport.Text = "Report";
@@ -689,7 +697,7 @@
             this.btnPrediction.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrediction.Location = new System.Drawing.Point(3, 441);
             this.btnPrediction.Name = "btnPrediction";
-            this.btnPrediction.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnPrediction.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnPrediction.Size = new System.Drawing.Size(218, 48);
             this.btnPrediction.TabIndex = 32;
             this.btnPrediction.Text = "Prediction";
@@ -707,11 +715,11 @@
             this.btnView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnView.Location = new System.Drawing.Point(3, 495);
             this.btnView.Name = "btnView";
-            this.btnView.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnView.Size = new System.Drawing.Size(218, 48);
             this.btnView.TabIndex = 33;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // assignTimer
             // 
@@ -764,6 +772,60 @@
             this.deleteTimer.Interval = 20;
             this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
             // 
+            // btnDeleteAssignTickToUser
+            // 
+            this.btnDeleteAssignTickToUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnDeleteAssignTickToUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteAssignTickToUser.FlatAppearance.BorderSize = 0;
+            this.btnDeleteAssignTickToUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnDeleteAssignTickToUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAssignTickToUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAssignTickToUser.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAssignTickToUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteAssignTickToUser.Location = new System.Drawing.Point(0, 351);
+            this.btnDeleteAssignTickToUser.Name = "btnDeleteAssignTickToUser";
+            this.btnDeleteAssignTickToUser.Size = new System.Drawing.Size(218, 58);
+            this.btnDeleteAssignTickToUser.TabIndex = 33;
+            this.btnDeleteAssignTickToUser.Text = "Delete Assigned Ticket to User";
+            this.btnDeleteAssignTickToUser.UseVisualStyleBackColor = false;
+            this.btnDeleteAssignTickToUser.Click += new System.EventHandler(this.btnDeleteAssignTickToUser_Click);
+            // 
+            // btnDeleteAssignProToCom
+            // 
+            this.btnDeleteAssignProToCom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnDeleteAssignProToCom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteAssignProToCom.FlatAppearance.BorderSize = 0;
+            this.btnDeleteAssignProToCom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnDeleteAssignProToCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAssignProToCom.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAssignProToCom.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAssignProToCom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteAssignProToCom.Location = new System.Drawing.Point(0, 294);
+            this.btnDeleteAssignProToCom.Name = "btnDeleteAssignProToCom";
+            this.btnDeleteAssignProToCom.Size = new System.Drawing.Size(218, 58);
+            this.btnDeleteAssignProToCom.TabIndex = 32;
+            this.btnDeleteAssignProToCom.Text = "Delete Assigned Project to Company";
+            this.btnDeleteAssignProToCom.UseVisualStyleBackColor = false;
+            this.btnDeleteAssignProToCom.Click += new System.EventHandler(this.btnDeleteAssignProToCom_Click);
+            // 
+            // btnDeleteAssignProToUser
+            // 
+            this.btnDeleteAssignProToUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(117)))));
+            this.btnDeleteAssignProToUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteAssignProToUser.FlatAppearance.BorderSize = 0;
+            this.btnDeleteAssignProToUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnDeleteAssignProToUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAssignProToUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAssignProToUser.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAssignProToUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteAssignProToUser.Location = new System.Drawing.Point(0, 236);
+            this.btnDeleteAssignProToUser.Name = "btnDeleteAssignProToUser";
+            this.btnDeleteAssignProToUser.Size = new System.Drawing.Size(218, 58);
+            this.btnDeleteAssignProToUser.TabIndex = 31;
+            this.btnDeleteAssignProToUser.Text = "Delete Assigned Project to User";
+            this.btnDeleteAssignProToUser.UseVisualStyleBackColor = false;
+            this.btnDeleteAssignProToUser.Click += new System.EventHandler(this.btnDeleteAssignProToUser_Click);
+            // 
             // panelChildContainer
             // 
             this.panelChildContainer.BackColor = System.Drawing.Color.White;
@@ -809,7 +871,7 @@
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(26, 22);
             this.btnMinimize.TabIndex = 15;
-            this.toolTip1.SetToolTip(this.btnMinimize, "Log out");
+            this.toolTip1.SetToolTip(this.btnMinimize, "Minimize");
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -846,7 +908,6 @@
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreate.Location = new System.Drawing.Point(0, 0);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnCreate.Size = new System.Drawing.Size(218, 48);
             this.btnCreate.TabIndex = 14;
             this.btnCreate.Text = "Create";
@@ -866,7 +927,6 @@
             this.btnAssign.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAssign.Location = new System.Drawing.Point(0, 0);
             this.btnAssign.Name = "btnAssign";
-            this.btnAssign.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnAssign.Size = new System.Drawing.Size(218, 48);
             this.btnAssign.TabIndex = 16;
             this.btnAssign.Text = "Assign";
@@ -886,7 +946,6 @@
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.Location = new System.Drawing.Point(0, 0);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnUpdate.Size = new System.Drawing.Size(218, 48);
             this.btnUpdate.TabIndex = 22;
             this.btnUpdate.Text = "Update";
@@ -906,7 +965,6 @@
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.Location = new System.Drawing.Point(0, 0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnDelete.Size = new System.Drawing.Size(218, 48);
             this.btnDelete.TabIndex = 26;
             this.btnDelete.Text = "Delete";
@@ -1001,7 +1059,7 @@
         private System.Windows.Forms.Timer updateTimer;
         private System.Windows.Forms.Panel panelDelete;
         private System.Windows.Forms.Button btnDeleteTicket;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteProject;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnDeleteCompany;
@@ -1014,5 +1072,8 @@
         private System.Windows.Forms.Button btnUpdateProToCom;
         private System.Windows.Forms.Button btnUpdateTicket;
         private System.Windows.Forms.Button btnUpdateAssignTicToUser;
+        private System.Windows.Forms.Button btnDeleteAssignTickToUser;
+        private System.Windows.Forms.Button btnDeleteAssignProToUser;
+        private System.Windows.Forms.Button btnDeleteAssignProToCom;
     }
 }

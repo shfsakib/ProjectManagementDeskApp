@@ -129,5 +129,31 @@ FROM            AssignTicketToUser INNER JOIN
             }
             return result;
         }
+        //Delete Assigned Ticket
+        internal bool DeleteAssignedTicket(AssignTicketToUserModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("DELETE FROM AssignTicketToUser WHERE AssignTicketId=@AssignTicketId", con);
+                cmd.Parameters.AddWithValue("@AssignTicketId", ob.AssignTicketId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

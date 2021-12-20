@@ -126,5 +126,31 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
             return result;
         }
+        //Delete project
+        internal bool DeleteProject(ProjectModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("DELETE FROM Projects WHERE ProjectId=@ProjectId", con);
+                cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

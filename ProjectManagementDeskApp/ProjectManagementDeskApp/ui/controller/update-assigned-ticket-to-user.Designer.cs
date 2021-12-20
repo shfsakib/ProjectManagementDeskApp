@@ -110,11 +110,11 @@
             this.btnAssignTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssignTicket.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssignTicket.ForeColor = System.Drawing.Color.White;
-            this.btnAssignTicket.Location = new System.Drawing.Point(580, 413);
+            this.btnAssignTicket.Location = new System.Drawing.Point(505, 413);
             this.btnAssignTicket.Name = "btnAssignTicket";
-            this.btnAssignTicket.Size = new System.Drawing.Size(215, 42);
+            this.btnAssignTicket.Size = new System.Drawing.Size(290, 42);
             this.btnAssignTicket.TabIndex = 7;
-            this.btnAssignTicket.Text = "Update Ticket To User";
+            this.btnAssignTicket.Text = "Update Assigned Ticket To User";
             this.btnAssignTicket.UseVisualStyleBackColor = false;
             this.btnAssignTicket.Click += new System.EventHandler(this.btnAssignTicket_Click);
             // 

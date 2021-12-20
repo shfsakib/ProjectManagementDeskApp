@@ -118,5 +118,31 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
             return result;
         }
+        //Delete Ticket
+        internal bool DeleteTicket(TicketModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("DELETE FROM Ticket WHERE TicketId=@TicketId", con);
+                cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

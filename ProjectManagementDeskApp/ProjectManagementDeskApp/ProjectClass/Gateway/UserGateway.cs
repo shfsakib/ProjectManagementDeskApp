@@ -135,6 +135,31 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             }
             return result;
         }
+        //Remove user
+        internal bool DeleteUser(UserModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("DELETE FROM Users WHERE UserId=@UserId", con);
+                cmd.Parameters.AddWithValue("@UserId", ob.UserId);
 
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

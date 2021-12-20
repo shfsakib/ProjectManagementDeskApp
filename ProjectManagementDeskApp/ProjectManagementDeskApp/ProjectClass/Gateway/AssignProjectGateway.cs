@@ -135,5 +135,31 @@ FROM            AssignProjects INNER JOIN
             }
             return result;
         }
+        //Delete Assigned Project
+        internal bool DeleteAssignedProject(AssignProjectModel ob)
+        {
+            bool result = false;
+            SqlTransaction transaction = null;
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand("DELETE FROM AssignProjects WHERE AssignId=@AssignId", con);
+                cmd.Parameters.AddWithValue("@AssignId", ob.AssignId);
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                result = true;
+                if (con.State != ConnectionState.Closed)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+            }
+            return result;
+        }
     }
 }

@@ -106,6 +106,7 @@ namespace ProjectManagementDeskApp
                         Properties.Settings.Default.Save();
                     }
                     Properties.Settings.Default.UserName = func.IsExist($@"SELECT FirstName FROM Users WHERE Email='{txtEmail.Text}'");
+                    Properties.Settings.Default.UserId = func.IsExist($@"SELECT UserId FROM Users WHERE Email='{txtEmail.Text}'");
                     Properties.Settings.Default.Save();
                     //hide login form and show dashboard form
                     this.Hide();

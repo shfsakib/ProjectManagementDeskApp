@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -47,6 +48,7 @@
             this.btnLoginClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.chkRemember = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelUserName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelPass.SuspendLayout();
@@ -228,6 +230,7 @@
             this.btnLoginClose.Name = "btnLoginClose";
             this.btnLoginClose.Size = new System.Drawing.Size(26, 22);
             this.btnLoginClose.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnLoginClose, "Exit");
             this.btnLoginClose.UseVisualStyleBackColor = false;
             this.btnLoginClose.Click += new System.EventHandler(this.btnLoginClose_Click);
             // 
@@ -246,6 +249,7 @@
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(26, 22);
             this.btnMinimize.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.btnMinimize, "Minimize");
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -319,6 +323,7 @@
         private System.Windows.Forms.LinkLabel lnkForgot;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.CheckBox chkRemember;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
