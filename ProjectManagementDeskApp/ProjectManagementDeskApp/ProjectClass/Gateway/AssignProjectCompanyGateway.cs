@@ -45,13 +45,14 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO AssignProjectToCompany(AssignCompanyId,ProjectId,CompanyId,StartDate,EndDate,Priority) VALUES(@AssignCompanyId,@ProjectId,@CompanyId,@StartDate,@EndDate,@Priority)", con);
+                cmd = new SqlCommand($"INSERT INTO AssignProjectToCompany(AssignCompanyId,ProjectId,CompanyId,StartDate,EndDate,Priority,AdminId) VALUES(@AssignCompanyId,@ProjectId,@CompanyId,@StartDate,@EndDate,@Priority,@AdminId)", con);
                 cmd.Parameters.AddWithValue("@AssignCompanyId", ob.AssignCompanyId);
                 cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
                 cmd.Parameters.AddWithValue("@CompanyId", ob.CompanyId);
                 cmd.Parameters.AddWithValue("@StartDate", ob.StartDate);
                 cmd.Parameters.AddWithValue("@EndDate", ob.EndDate);
                 cmd.Parameters.AddWithValue("@Priority", ob.Priority);
+                cmd.Parameters.AddWithValue("@AdminId", Properties.Settings.Default.UserId);
 
                 cmd.Transaction = transaction;
                 cmd.ExecuteNonQuery();
@@ -78,7 +79,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 string query = $@"SELECT        AssignProjectToCompany.*, CAST(AssignProjectToCompany.ProjectId AS nvarchar)+ ' | ' +Projects.ProjectName ProjectName, Projects.Progress, CAST(Company.CompanyId AS nvarchar) + ' | ' +Company.CompanyName CompanyNAME
 FROM            AssignProjectToCompany INNER JOIN
                          Projects ON AssignProjectToCompany.ProjectId = Projects.ProjectId INNER JOIN
-                         Company ON AssignProjectToCompany.CompanyId = Company.CompanyId WHERE (CAST(AssignProjectToCompany.AssignCompanyId AS nvarchar) + ' | ' +Company.CompanyName='{text}') OR (Company.CompanyName + ' | ' +  CAST(AssignProjectToCompany.AssignCompanyId AS nvarchar)='{text}')";
+                         Company ON AssignProjectToCompany.CompanyId = Company.CompanyId WHERE (CAST(AssignProjectToCompany.AssignCompanyId AS nvarchar) + ' | ' +Company.CompanyName='{text}') OR (Company.CompanyName + ' | ' +  CAST(AssignProjectToCompany.AssignCompanyId AS nvarchar)='{text}') AND CAST(AssignProjectToCompany.AdminId AS nvarchar)='{Properties.Settings.Default.UserId}'";
                 cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -114,7 +115,7 @@ FROM            AssignProjectToCompany INNER JOIN
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE AssignProjectToCompany SET ProjectId=@ProjectId,CompanyId=@CompanyId,EndDate=@EndDate,Priority=@Priority WHERE AssignCompanyId=@AssignCompanyId", con);
+                cmd = new SqlCommand($"UPDATE AssignProjectToCompany SET ProjectId=@ProjectId,CompanyId=@CompanyId,EndDate=@EndDate,Priority=@Priority WHERE AssignCompanyId=@AssignCompanyId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
                 cmd.Parameters.AddWithValue("@CompanyId", ob.CompanyId);
                 cmd.Parameters.AddWithValue("@EndDate", ob.EndDate);
@@ -145,7 +146,7 @@ FROM            AssignProjectToCompany INNER JOIN
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM AssignProjectToCompany WHERE AssignCompanyId=@AssignCompanyId", con);
+                cmd = new SqlCommand($"DELETE FROM AssignProjectToCompany WHERE AssignCompanyId=@AssignCompanyId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@AssignCompanyId", ob.AssignCompanyId);
 
                 cmd.Transaction = transaction;

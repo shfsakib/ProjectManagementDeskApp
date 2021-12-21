@@ -46,7 +46,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO AssignProjects(AssignId,ProjectId,UserId,StartDate,EndDate,Priority) VALUES(@AssignId,@ProjectId,@UserId,@StartDate,@EndDate,@Priority)", con);
+                cmd = new SqlCommand($"INSERT INTO AssignProjects(AssignId,ProjectId,UserId,StartDate,EndDate,Priority,AdminId) VALUES(@AssignId,@ProjectId,@UserId,@StartDate,@EndDate,@Priority,{Properties.Settings.Default.UserId})", con);
                 cmd.Parameters.AddWithValue("@AssignId", ob.AssignId);
                 cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
                 cmd.Parameters.AddWithValue("@UserId", ob.UserId);
@@ -78,7 +78,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 string query = $@"SELECT        AssignProjects.*, CAST(AssignProjects.ProjectId AS nvarchar)+ ' | ' +Projects.ProjectName ProjectName, Projects.Progress, CAST(Users.UserId AS nvarchar) + ' | ' +Users.FirstName +' '+Users.SurName UserNAME
 FROM            AssignProjects INNER JOIN
                          Projects ON AssignProjects.ProjectId = Projects.ProjectId INNER JOIN
-                         Users ON AssignProjects.UserId = Users.UserId WHERE (CAST(AssignProjects.AssignId AS nvarchar) + ' | ' +Projects.ProjectName='{text}') OR (Projects.ProjectName + ' | ' +  CAST(AssignProjects.AssignId AS nvarchar)='{text}')";
+                         Users ON AssignProjects.UserId = Users.UserId WHERE (CAST(AssignProjects.AssignId AS nvarchar) + ' | ' +Projects.ProjectName='{text}') OR (Projects.ProjectName + ' | ' +  CAST(AssignProjects.AssignId AS nvarchar)='{text}') AND AssignProjects.AdminId={Properties.Settings.Default.UserId}";
                 cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -115,7 +115,7 @@ FROM            AssignProjects INNER JOIN
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE AssignProjects SET ProjectId=@ProjectId,UserId=@UserId,EndDate=@EndDate,Priority=@Priority WHERE AssignId=@AssignId", con);
+                cmd = new SqlCommand($"UPDATE AssignProjects SET ProjectId=@ProjectId,UserId=@UserId,EndDate=@EndDate,Priority=@Priority WHERE AssignId=@AssignId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
                 cmd.Parameters.AddWithValue("@UserId", ob.UserId);
                 cmd.Parameters.AddWithValue("@EndDate", ob.EndDate);
@@ -145,7 +145,7 @@ FROM            AssignProjects INNER JOIN
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM AssignProjects WHERE AssignId=@AssignId", con);
+                cmd = new SqlCommand($"DELETE FROM AssignProjects WHERE AssignId=@AssignId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@AssignId", ob.AssignId);
 
                 cmd.Transaction = transaction;

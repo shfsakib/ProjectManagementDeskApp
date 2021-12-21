@@ -44,7 +44,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO Company(CompanyId,CompanyName,CompanyLocation) VALUES(@CompanyId,@CompanyName,@CompanyLocation)", con);
+                cmd = new SqlCommand($"INSERT INTO Company(CompanyId,CompanyName,CompanyLocation,AdminId) VALUES(@CompanyId,@CompanyName,@CompanyLocation,{Properties.Settings.Default.UserId})", con);
                 cmd.Parameters.AddWithValue("@CompanyId", ob.CompanyId);
                 cmd.Parameters.AddWithValue("@CompanyName", ob.CompanyName);
                 cmd.Parameters.AddWithValue("@CompanyLocation", ob.CompanyLocation);
@@ -70,7 +70,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             {
                 if (con.State != ConnectionState.Open)
                     con.Open();
-                string query = $@"SELECT * FROM Company WHERE (CAST(CompanyId AS nvarchar) + ' | '+CompanyName='{text}') OR (CompanyName + ' | '+CAST(CompanyId AS nvarchar)='{text}')";
+                string query = $@"SELECT * FROM Company WHERE (CAST(CompanyId AS nvarchar) + ' | '+CompanyName='{text}') OR (CompanyName + ' | '+CAST(CompanyId AS nvarchar)='{text}') AND AdminId={Properties.Settings.Default.UserId}";
                 cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -103,7 +103,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE Company SET CompanyName=@CompanyName,CompanyLocation=@CompanyLocation WHERE CompanyId=@CompanyId", con);
+                cmd = new SqlCommand($"UPDATE Company SET CompanyName=@CompanyName,CompanyLocation=@CompanyLocation WHERE CompanyId=@CompanyId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@CompanyName", ob.CompanyName);
                 cmd.Parameters.AddWithValue("@CompanyLocation", ob.CompanyLocation);
                 cmd.Parameters.AddWithValue("@CompanyId", ob.CompanyId);
@@ -131,7 +131,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM Company WHERE CompanyId=@CompanyId", con);
+                cmd = new SqlCommand($"DELETE FROM Company WHERE CompanyId=@CompanyId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@CompanyId", ob.CompanyId);
 
                 cmd.Transaction = transaction;

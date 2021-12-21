@@ -45,7 +45,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO AssignTicketToUser(AssignTicketId,TicketId,UserId,DateIssued) VALUES(@AssignTicketId,@TicketId,@UserId,@DateIssued)", con);
+                cmd = new SqlCommand($"INSERT INTO AssignTicketToUser(AssignTicketId,TicketId,UserId,DateIssued,AdminId) VALUES(@AssignTicketId,@TicketId,@UserId,@DateIssued,{Properties.Settings.Default.UserId})", con);
                 cmd.Parameters.AddWithValue("@AssignTicketId", ob.AssignTicketId);
                 cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
                 cmd.Parameters.AddWithValue("@UserId", ob.UserId);
@@ -77,7 +77,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 string query = $@"SELECT        AssignTicketToUser.AssignTicketId,AssignTicketToUser.UserId,AssignTicketToUser.DateIssued, CAST(Ticket.TicketId AS nvarchar) TicketId, CAST(Users.UserId AS nvarchar) + ' | ' +Users.FirstName+' '+Users.SurName UserName
 FROM            AssignTicketToUser INNER JOIN
                          Ticket ON AssignTicketToUser.TicketId = Ticket.Id INNER JOIN
-                         Users ON AssignTicketToUser.UserId = Users.UserId WHERE (CAST(Ticket.TicketId AS nvarchar) + ' | ' +Users.FirstName+' '+Users.SurName='{text}') OR (Users.FirstName+' '+Users.SurName + ' | ' +CAST(Ticket.TicketId AS nvarchar)='{text}')";
+                         Users ON AssignTicketToUser.UserId = Users.UserId WHERE (CAST(Ticket.TicketId AS nvarchar) + ' | ' +Users.FirstName+' '+Users.SurName='{text}') OR (Users.FirstName+' '+Users.SurName + ' | ' +CAST(Ticket.TicketId AS nvarchar)='{text}') AND Ticket.AdminId={Properties.Settings.Default.UserId}";
                 cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -111,7 +111,7 @@ FROM            AssignTicketToUser INNER JOIN
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE AssignTicketToUser SET TicketId=@TicketId,UserId=@UserId WHERE AssignTicketId=@AssignTicketId", con);
+                cmd = new SqlCommand($"UPDATE AssignTicketToUser SET TicketId=@TicketId,UserId=@UserId WHERE AssignTicketId=@AssignTicketId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
                 cmd.Parameters.AddWithValue("@UserId", ob.UserId);
                 cmd.Parameters.AddWithValue("@AssignTicketId", ob.AssignTicketId);
@@ -139,7 +139,7 @@ FROM            AssignTicketToUser INNER JOIN
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM AssignTicketToUser WHERE AssignTicketId=@AssignTicketId", con);
+                cmd = new SqlCommand($"DELETE FROM AssignTicketToUser WHERE AssignTicketId=@AssignTicketId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@AssignTicketId", ob.AssignTicketId);
 
                 cmd.Transaction = transaction;

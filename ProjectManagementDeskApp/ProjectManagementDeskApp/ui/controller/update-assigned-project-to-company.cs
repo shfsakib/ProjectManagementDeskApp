@@ -38,19 +38,19 @@ namespace ProjectManagementDeskApp.ui.controller
             dateEndDate.Format = DateTimePickerFormat.Custom;
             dateEndDate.CustomFormat = "dd/MM/yyyy";
             //bind combobox from database
-            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects ORDER BY Name ASC");
-            func.BindComboBox(comboCompany, "select project", $@"SELECT CompanyId ID, CAST(CompanyId AS nvarchar) + ' | ' +CompanyName NAME FROM Company ORDER BY Name ASC");
+            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
+            func.BindComboBox(comboCompany, "select project", $@"SELECT CompanyId ID, CAST(CompanyId AS nvarchar) + ' | ' +CompanyName NAME FROM Company WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
             //autocomplete
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT        CAST(AssignProjectToCompany.AssignCompanyId AS nvarchar) + ' | ' +Company.CompanyName AS txt 
 FROM            AssignProjectToCompany INNER JOIN
                          Company ON AssignProjectToCompany.CompanyId = Company.CompanyId
-WHERE AssignProjectToCompany.AssignCompanyId LIKE '%%'
+WHERE AssignProjectToCompany.AssignCompanyId LIKE '%%' AND AssignProjectToCompany.AdminId={Properties.Settings.Default.UserId}
 union
 SELECT      Company.CompanyName + ' | ' +  CAST(AssignProjectToCompany.AssignCompanyId AS nvarchar) AS txt 
 FROM            AssignProjectToCompany INNER JOIN
                          Company ON AssignProjectToCompany.CompanyId = Company.CompanyId  
-WHERE Company.CompanyName LIKE '%%' )A");
+WHERE Company.CompanyName LIKE '%%' AND AssignProjectToCompany.AdminId={Properties.Settings.Default.UserId})A");
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {

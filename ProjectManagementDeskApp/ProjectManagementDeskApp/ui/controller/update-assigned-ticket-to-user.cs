@@ -37,21 +37,21 @@ namespace ProjectManagementDeskApp.ui.controller
             comboCompany.Text = "--COMPANY--";
             comboProject.Text = "--PROJECT--";
             //bind combobox from database
-            func.BindComboBox(comboTicket, "select ticket", $@"SELECT Id ID, CAST(TicketId AS nvarchar) NAME FROM Ticket ORDER BY NAME ASC");
-            func.BindComboBox(comboUser, "select User", $@"SELECT UserId ID, CAST(UserId AS nvarchar) + ' | ' +FirstName +' '+SurName NAME FROM Users WHERE UserType='Staff' ORDER BY Name ASC");
+            func.BindComboBox(comboTicket, "select ticket", $@"SELECT Id ID, CAST(TicketId AS nvarchar) NAME FROM Ticket WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY NAME ASC");
+            func.BindComboBox(comboUser, "select User", $@"SELECT UserId ID, CAST(UserId AS nvarchar) + ' | ' +FirstName +' '+SurName NAME FROM Users WHERE UserType='Staff' AND AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
             //autocomplete
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT        CAST(Ticket.TicketId AS nvarchar) + ' | ' +Users.FirstName+' '+Users.SurName AS txt 
 FROM            AssignTicketToUser INNER JOIN
                          Users ON AssignTicketToUser.UserId = Users.UserId INNER JOIN
 						 Ticket ON AssignTicketToUser.TicketId=Ticket.Id
-WHERE Ticket.TicketId LIKE '%%'
+WHERE Ticket.TicketId LIKE '%%' AND AssignTicketToUser.AdminId={Properties.Settings.Default.UserId}
 union
 SELECT      Users.FirstName+' '+Users.SurName + ' | ' +CAST(Ticket.TicketId AS nvarchar) AS txt 
 FROM            AssignTicketToUser INNER JOIN
                          Users ON AssignTicketToUser.UserId = Users.UserId  INNER JOIN
 						 Ticket ON AssignTicketToUser.TicketId=Ticket.Id
-WHERE Users.FirstName+' '+Users.SurName LIKE '%%' )A");
+WHERE Users.FirstName+' '+Users.SurName LIKE '%%' AND AssignTicketToUser.AdminId={Properties.Settings.Default.UserId})A");
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -114,12 +114,12 @@ FROM            Projects INNER JOIN
                          AssignProjects ON Projects.ProjectId = AssignProjects.ProjectId INNER JOIN
                          Users ON AssignProjects.UserId = Users.UserId INNER JOIN
                          AssignProjectToCompany ON Projects.ProjectId = AssignProjectToCompany.ProjectId INNER JOIN
-                         Company ON AssignProjectToCompany.CompanyId = Company.CompanyId WHERE Users.UserId='{comboUser.SelectedValue}' ORDER BY Name ASC");
+                         Company ON AssignProjectToCompany.CompanyId = Company.CompanyId WHERE Users.UserId='{comboUser.SelectedValue}' AND Users.AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
 
                 func.BindComboBox(comboProject, "Project", $@"SELECT        Projects.ProjectId ID,Projects.ProjectName Name
 FROM            Projects INNER JOIN
                          AssignProjects ON Projects.ProjectId = AssignProjects.ProjectId INNER JOIN
-                         Users ON AssignProjects.UserId = Users.UserId WHERE Users.UserId='{comboUser.SelectedValue}' ORDER BY Name ASC");
+                         Users ON AssignProjects.UserId = Users.UserId WHERE Users.UserId='{comboUser.SelectedValue}' AND Users.AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
             }
             else
             {

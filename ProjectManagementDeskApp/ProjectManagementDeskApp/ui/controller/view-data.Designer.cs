@@ -37,18 +37,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabProject = new System.Windows.Forms.TabPage();
-            this.tabTicket = new System.Windows.Forms.TabPage();
-            this.tabCompany = new System.Windows.Forms.TabPage();
             this.dataProjectGrid = new System.Windows.Forms.DataGridView();
             this.btnSearchProject = new System.Windows.Forms.Button();
             this.txtSearchProject = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabCompany = new System.Windows.Forms.TabPage();
             this.dataCompanyGrid = new System.Windows.Forms.DataGridView();
             this.btnSearchCompany = new System.Windows.Forms.Button();
             this.txtSearchCompany = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabTicket = new System.Windows.Forms.TabPage();
             this.dataTicketGrid = new System.Windows.Forms.DataGridView();
             this.btnSearchTicket = new System.Windows.Forms.Button();
             this.txtSearchTicket = new System.Windows.Forms.TextBox();
@@ -58,10 +58,10 @@
             this.tabUserPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUserGrid)).BeginInit();
             this.tabProject.SuspendLayout();
-            this.tabTicket.SuspendLayout();
-            this.tabCompany.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataProjectGrid)).BeginInit();
+            this.tabCompany.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataCompanyGrid)).BeginInit();
+            this.tabTicket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTicketGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +129,7 @@
             this.btnSearchUser.TabIndex = 100;
             this.btnSearchUser.Text = "Search";
             this.btnSearchUser.UseVisualStyleBackColor = false;
+            this.btnSearchUser.Click += new System.EventHandler(this.btnSearchUser_Click);
             // 
             // txtSearchUser
             // 
@@ -176,36 +177,10 @@
             this.tabProject.Text = "Projects";
             this.tabProject.UseVisualStyleBackColor = true;
             // 
-            // tabTicket
-            // 
-            this.tabTicket.Controls.Add(this.dataTicketGrid);
-            this.tabTicket.Controls.Add(this.btnSearchTicket);
-            this.tabTicket.Controls.Add(this.txtSearchTicket);
-            this.tabTicket.Controls.Add(this.label8);
-            this.tabTicket.Controls.Add(this.label9);
-            this.tabTicket.Location = new System.Drawing.Point(4, 30);
-            this.tabTicket.Name = "tabTicket";
-            this.tabTicket.Size = new System.Drawing.Size(967, 473);
-            this.tabTicket.TabIndex = 2;
-            this.tabTicket.Text = "Tickets";
-            this.tabTicket.UseVisualStyleBackColor = true;
-            // 
-            // tabCompany
-            // 
-            this.tabCompany.Controls.Add(this.dataCompanyGrid);
-            this.tabCompany.Controls.Add(this.btnSearchCompany);
-            this.tabCompany.Controls.Add(this.txtSearchCompany);
-            this.tabCompany.Controls.Add(this.label6);
-            this.tabCompany.Controls.Add(this.label7);
-            this.tabCompany.Location = new System.Drawing.Point(4, 30);
-            this.tabCompany.Name = "tabCompany";
-            this.tabCompany.Size = new System.Drawing.Size(967, 473);
-            this.tabCompany.TabIndex = 3;
-            this.tabCompany.Text = "Companies";
-            this.tabCompany.UseVisualStyleBackColor = true;
-            // 
             // dataProjectGrid
             // 
+            this.dataProjectGrid.AllowUserToAddRows = false;
+            this.dataProjectGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataProjectGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataProjectGrid.Location = new System.Drawing.Point(30, 68);
             this.dataProjectGrid.Name = "dataProjectGrid";
@@ -225,6 +200,7 @@
             this.btnSearchProject.TabIndex = 105;
             this.btnSearchProject.Text = "Search";
             this.btnSearchProject.UseVisualStyleBackColor = false;
+            this.btnSearchProject.Click += new System.EventHandler(this.btnSearchProject_Click);
             // 
             // txtSearchProject
             // 
@@ -258,8 +234,24 @@
             this.label4.TabIndex = 103;
             this.label4.Text = "Projects";
             // 
+            // tabCompany
+            // 
+            this.tabCompany.Controls.Add(this.dataCompanyGrid);
+            this.tabCompany.Controls.Add(this.btnSearchCompany);
+            this.tabCompany.Controls.Add(this.txtSearchCompany);
+            this.tabCompany.Controls.Add(this.label6);
+            this.tabCompany.Controls.Add(this.label7);
+            this.tabCompany.Location = new System.Drawing.Point(4, 30);
+            this.tabCompany.Name = "tabCompany";
+            this.tabCompany.Size = new System.Drawing.Size(967, 473);
+            this.tabCompany.TabIndex = 3;
+            this.tabCompany.Text = "Companies";
+            this.tabCompany.UseVisualStyleBackColor = true;
+            // 
             // dataCompanyGrid
             // 
+            this.dataCompanyGrid.AllowUserToAddRows = false;
+            this.dataCompanyGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataCompanyGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataCompanyGrid.Location = new System.Drawing.Point(30, 68);
             this.dataCompanyGrid.Name = "dataCompanyGrid";
@@ -279,6 +271,7 @@
             this.btnSearchCompany.TabIndex = 105;
             this.btnSearchCompany.Text = "Search";
             this.btnSearchCompany.UseVisualStyleBackColor = false;
+            this.btnSearchCompany.Click += new System.EventHandler(this.btnSearchCompany_Click);
             // 
             // txtSearchCompany
             // 
@@ -312,8 +305,24 @@
             this.label7.TabIndex = 103;
             this.label7.Text = "Companies";
             // 
+            // tabTicket
+            // 
+            this.tabTicket.Controls.Add(this.dataTicketGrid);
+            this.tabTicket.Controls.Add(this.btnSearchTicket);
+            this.tabTicket.Controls.Add(this.txtSearchTicket);
+            this.tabTicket.Controls.Add(this.label8);
+            this.tabTicket.Controls.Add(this.label9);
+            this.tabTicket.Location = new System.Drawing.Point(4, 30);
+            this.tabTicket.Name = "tabTicket";
+            this.tabTicket.Size = new System.Drawing.Size(967, 473);
+            this.tabTicket.TabIndex = 2;
+            this.tabTicket.Text = "Tickets";
+            this.tabTicket.UseVisualStyleBackColor = true;
+            // 
             // dataTicketGrid
             // 
+            this.dataTicketGrid.AllowUserToAddRows = false;
+            this.dataTicketGrid.BackgroundColor = System.Drawing.Color.White;
             this.dataTicketGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTicketGrid.Location = new System.Drawing.Point(30, 68);
             this.dataTicketGrid.Name = "dataTicketGrid";
@@ -333,6 +342,7 @@
             this.btnSearchTicket.TabIndex = 110;
             this.btnSearchTicket.Text = "Search";
             this.btnSearchTicket.UseVisualStyleBackColor = false;
+            this.btnSearchTicket.Click += new System.EventHandler(this.btnSearchTicket_Click);
             // 
             // txtSearchTicket
             // 
@@ -384,12 +394,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataUserGrid)).EndInit();
             this.tabProject.ResumeLayout(false);
             this.tabProject.PerformLayout();
-            this.tabTicket.ResumeLayout(false);
-            this.tabTicket.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataProjectGrid)).EndInit();
             this.tabCompany.ResumeLayout(false);
             this.tabCompany.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataProjectGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataCompanyGrid)).EndInit();
+            this.tabTicket.ResumeLayout(false);
+            this.tabTicket.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTicketGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

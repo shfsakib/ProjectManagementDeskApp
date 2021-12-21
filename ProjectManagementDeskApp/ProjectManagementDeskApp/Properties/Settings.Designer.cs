@@ -70,5 +70,29 @@ namespace ProjectManagementDeskApp.Properties {
                 this["UserId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserType {
+            get {
+                return ((string)(this["UserType"]));
+            }
+            set {
+                this["UserType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Code {
+            get {
+                return ((string)(this["Code"]));
+            }
+            set {
+                this["Code"] = value;
+            }
+        }
     }
 }

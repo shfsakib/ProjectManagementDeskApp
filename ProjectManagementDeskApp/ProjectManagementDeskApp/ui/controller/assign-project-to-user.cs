@@ -36,10 +36,20 @@ namespace ProjectManagementDeskApp.ui.controller
             dateEndDate.Format = DateTimePickerFormat.Custom;
             dateEndDate.CustomFormat = "dd/MM/yyyy";
             //bind combobox from database
-            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects ORDER BY Name ASC");
-            func.BindComboBox(comboUser, "select project", $@"SELECT UserId ID, CAST(UserId AS nvarchar) + ' | ' +FirstName +' '+SurName NAME FROM Users WHERE UserType='Staff' ORDER BY Name ASC");
+            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
+            func.BindComboBox(comboUser, "select project", $@"SELECT UserId ID, CAST(UserId AS nvarchar) + ' | ' +FirstName +' '+SurName NAME FROM Users WHERE UserType='Staff' AND AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
         }
+        private bool IsAssignExist()
+        {
+            bool ans = false;
+            string x = func.IsExist($@"SELECT AssignId FROM AssignProjects WHERE ProjectId='{comboProject.SelectedValue}' AND UserId='{comboUser.SelectedValue}' AND EndDate>'{DateTime.Now.ToString("dd/MM/yyyy")}' AND AdminId={Properties.Settings.Default.UserId}");
+            if (x != "")
+            {
+                ans = true;
+            }
 
+            return ans;
+        }
         private void btnAssignProject_Click(object sender, EventArgs e)
         {
             if (comboProject.SelectedIndex <= 0)
@@ -54,6 +64,10 @@ namespace ProjectManagementDeskApp.ui.controller
             {
                 MessageBox.Show("Priority is required", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (IsAssignExist())
+            {
+                MessageBox.Show("This project already assigned to this user", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 assignProjectModel.AssignId = Convert.ToInt32(func.GenerateId($@"SELECT MAX(AssignId) FROM AssignProjects"));
@@ -65,7 +79,7 @@ namespace ProjectManagementDeskApp.ui.controller
                 bool ans = assignProjectGateway.Insert(assignProjectModel);
                 if (ans)
                 {
-                    MessageBox.Show("Project assigned to " + comboUser.Text + " successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Project assigned to " + comboUser.Text + " successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     comboProject.SelectedIndex = comboUser.SelectedIndex = 0;
                     comboPriority.Text = "-- SELECT PRIORITY --";
                     dateStartDate.Text = dateEndDate.Text = "";

@@ -37,10 +37,10 @@ namespace ProjectManagementDeskApp.ui.controller
             //autocomplete search box data from database
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(ProjectId AS nvarchar) + ' | '+ProjectName txt FROM Projects  
-WHERE ProjectId LIKE '%%'
+WHERE ProjectId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 union
 SELECT  ProjectName + ' | '+CAST(ProjectId AS nvarchar) txt FROM Projects  
-WHERE ProjectName LIKE '%%' ) A");
+WHERE ProjectName LIKE '%%' AND AdminId={Properties.Settings.Default.UserId} ) A");
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -92,7 +92,7 @@ WHERE ProjectName LIKE '%%' ) A");
         private bool IsExist()
         {
             bool ans = false;
-            string x = func.IsExist($@"SELECT ProjectId FROM AssignProjects WHERE ProjectId='{txtProjectId.Text}'");
+            string x = func.IsExist($@"SELECT ProjectId FROM AssignProjects WHERE ProjectId='{txtProjectId.Text}' AND AdminId={Properties.Settings.Default.UserId}");
             if (x != "")
             {
                 ans = true;
@@ -103,7 +103,7 @@ WHERE ProjectName LIKE '%%' ) A");
         private bool IsProjectExist()
         {
             bool ans = false;
-            string x = func.IsExist($@"SELECT ProjectId FROM AssignProjectToCompany WHERE ProjectId='{txtProjectId.Text}'");
+            string x = func.IsExist($@"SELECT ProjectId FROM AssignProjectToCompany WHERE ProjectId='{txtProjectId.Text}' AND AdminId={Properties.Settings.Default.UserId}");
             if (x != "")
             {
                 ans = true;

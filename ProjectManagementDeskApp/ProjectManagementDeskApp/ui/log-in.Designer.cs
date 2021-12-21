@@ -44,11 +44,11 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lnkForgot = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnLoginClose = new System.Windows.Forms.Button();
-            this.btnMinimize = new System.Windows.Forms.Button();
             this.chkRemember = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnLoginClose = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelUserName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelPass.SuspendLayout();
@@ -170,7 +170,7 @@
             this.btnRegister.BackColor = System.Drawing.Color.ForestGreen;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
             this.btnRegister.Location = new System.Drawing.Point(120, 284);
             this.btnRegister.Name = "btnRegister";
@@ -185,7 +185,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(127)))), ((int)(((byte)(173)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(299, 284);
             this.btnLogin.Name = "btnLogin";
@@ -205,34 +205,18 @@
             this.lnkForgot.TabIndex = 11;
             this.lnkForgot.TabStop = true;
             this.lnkForgot.Text = "forgot password";
+            this.lnkForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkForgot_LinkClicked);
             // 
-            // pictureBox1
+            // chkRemember
             // 
-            this.pictureBox1.Image = global::ProjectManagementDeskApp.Properties.Resources.rouded_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(237, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 71);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnLoginClose
-            // 
-            this.btnLoginClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoginClose.BackgroundImage = global::ProjectManagementDeskApp.Properties.Resources.close1;
-            this.btnLoginClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLoginClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLoginClose.FlatAppearance.BorderSize = 0;
-            this.btnLoginClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoginClose.ForeColor = System.Drawing.Color.White;
-            this.btnLoginClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLoginClose.Location = new System.Drawing.Point(531, 12);
-            this.btnLoginClose.Name = "btnLoginClose";
-            this.btnLoginClose.Size = new System.Drawing.Size(26, 22);
-            this.btnLoginClose.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.btnLoginClose, "Exit");
-            this.btnLoginClose.UseVisualStyleBackColor = false;
-            this.btnLoginClose.Click += new System.EventHandler(this.btnLoginClose_Click);
+            this.chkRemember.AutoSize = true;
+            this.chkRemember.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRemember.Location = new System.Drawing.Point(120, 256);
+            this.chkRemember.Name = "chkRemember";
+            this.chkRemember.Size = new System.Drawing.Size(117, 23);
+            this.chkRemember.TabIndex = 17;
+            this.chkRemember.Text = "Remember me";
+            this.chkRemember.UseVisualStyleBackColor = true;
             // 
             // btnMinimize
             // 
@@ -253,15 +237,33 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // chkRemember
+            // btnLoginClose
             // 
-            this.chkRemember.AutoSize = true;
-            this.chkRemember.Location = new System.Drawing.Point(120, 258);
-            this.chkRemember.Name = "chkRemember";
-            this.chkRemember.Size = new System.Drawing.Size(94, 17);
-            this.chkRemember.TabIndex = 17;
-            this.chkRemember.Text = "Remember me";
-            this.chkRemember.UseVisualStyleBackColor = true;
+            this.btnLoginClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoginClose.BackgroundImage = global::ProjectManagementDeskApp.Properties.Resources.close1;
+            this.btnLoginClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLoginClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoginClose.FlatAppearance.BorderSize = 0;
+            this.btnLoginClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoginClose.ForeColor = System.Drawing.Color.White;
+            this.btnLoginClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoginClose.Location = new System.Drawing.Point(531, 12);
+            this.btnLoginClose.Name = "btnLoginClose";
+            this.btnLoginClose.Size = new System.Drawing.Size(26, 22);
+            this.btnLoginClose.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btnLoginClose, "Exit");
+            this.btnLoginClose.UseVisualStyleBackColor = false;
+            this.btnLoginClose.Click += new System.EventHandler(this.btnLoginClose_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProjectManagementDeskApp.Properties.Resources.rouded_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(237, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 

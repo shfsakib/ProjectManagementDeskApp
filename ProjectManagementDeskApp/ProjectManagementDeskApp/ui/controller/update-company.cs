@@ -28,10 +28,10 @@ namespace ProjectManagementDeskApp.ui.controller
             //autocomplete
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(CompanyId AS nvarchar) + ' | '+CompanyName txt FROM Company  
-WHERE CompanyId LIKE '%%'
+WHERE CompanyId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 union
 SELECT  CompanyName + ' | '+CAST(CompanyId AS nvarchar) txt FROM Company  
-WHERE CompanyName LIKE '%%' ) A");
+WHERE CompanyName LIKE '%%' AND AdminId={Properties.Settings.Default.UserId} ) A");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -58,10 +58,10 @@ WHERE CompanyName LIKE '%%' ) A");
             txtSearch.Text = txtCompanyId.Text = txtCompanyName.Text = txtCompanyLocation.Text = "";
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(CompanyId AS nvarchar) + ' | '+CompanyName txt FROM Company  
-WHERE CompanyId LIKE '%%'
+WHERE CompanyId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 union
 SELECT  CompanyName + ' | '+CAST(CompanyId AS nvarchar) txt FROM Company  
-WHERE CompanyName LIKE '%%' ) A");
+WHERE CompanyName LIKE '%%' AND AdminId={Properties.Settings.Default.UserId} ) A");
         }
 
         private void btnUpdateCompany_Click(object sender, EventArgs e)

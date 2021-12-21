@@ -31,6 +31,18 @@ namespace ProjectManagementDeskApp.ui
 
         private void InitialCode()
         {
+            //show hide menu based on user role
+            if (Properties.Settings.Default.UserType != "Admin")
+            {
+                panelCreate.Visible = panelAssign.Visible = panelUpdate.Visible = panelDelete.Visible = btnReport.Visible = btnView.Visible = btnPrediction.Visible = false;
+                btnAssignedProject.Visible = btnAssignedTicket.Visible = true;
+            }
+            else
+            {
+                panelCreate.Visible = panelAssign.Visible = panelUpdate.Visible = panelDelete.Visible = btnReport.Visible = btnView.Visible = btnPrediction.Visible = true;
+                btnAssignedProject.Visible = btnAssignedTicket.Visible = false;
+            }
+            //set user name on label
             lblUserName.Text = Properties.Settings.Default.UserName;
             homeControl homeControl = new homeControl();
             panelChildContainer.Controls.Add(homeControl);
@@ -49,7 +61,7 @@ namespace ProjectManagementDeskApp.ui
             btnDashClose.BackColorChanged += (s, e) =>
             {
                 btnDashClose.FlatAppearance.MouseOverBackColor = btnDashClose.BackColor;
-            }; 
+            };
         }
 
         private void btnLoginClose_MouseMove(object sender, MouseEventArgs e)
@@ -339,7 +351,7 @@ namespace ProjectManagementDeskApp.ui
 
         private void btnDeleteAssignProToUser_Click(object sender, EventArgs e)
         {
-            delete_assigned_project_to_user deleteAssignedProjectToUser=new delete_assigned_project_to_user();
+            delete_assigned_project_to_user deleteAssignedProjectToUser = new delete_assigned_project_to_user();
             panelChildContainer.Controls.Clear();
             panelChildContainer.Controls.Add(deleteAssignedProjectToUser);
         }
@@ -367,9 +379,47 @@ namespace ProjectManagementDeskApp.ui
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            view_data viewData=new view_data();
+            view_data viewData = new view_data();
             panelChildContainer.Controls.Clear();
             panelChildContainer.Controls.Add(viewData);
+        }
+
+        private void btnPrediction_Click(object sender, EventArgs e)
+        {
+            prediction prediction = new prediction();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(prediction);
+        }
+
+        private void dashboard_MouseMove(object sender, MouseEventArgs e)
+        {
+            //change form location
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouse_offset.X, mouse_offset.Y);
+                this.Location = mousePos; //move the form to the desired location
+            }
+        }
+
+        private void dashboard_MouseDown(object sender, MouseEventArgs e)
+        {
+            //set form location
+            mouse_offset = new Point(-e.X, -e.Y);
+        }
+
+        private void btnAssignedProject_Click(object sender, EventArgs e)
+        {
+            assigned_project assignedProject = new assigned_project();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(assignedProject);
+        }
+
+        private void btnAssignedTicket_Click(object sender, EventArgs e)
+        {
+            assigned_ticket assignedTicket = new assigned_ticket();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(assignedTicket);
         }
     }
 }

@@ -35,7 +35,18 @@ namespace ProjectManagementDeskApp.ui.controller
             //focus first name
             txtFirstName.Focus();
             //get userid from users table
-            txtUserId.Text = func.GenerateId($@"SELECT MAX(UserId) FROM Users");
+            txtUserId.Text = func.GenerateId($@"SELECT MAX(UserId) FROM Users WHERE AdminId={Properties.Settings.Default.UserId}");
+        }
+        private bool IsEmailExist()
+        {
+            bool ans = false;
+            string x = func.IsExist($@"SELECT USERID FROM Users WHERE Email='{txtEmail.Text}' AND AdminId={Properties.Settings.Default.UserId}");
+            if (x != "")
+            {
+                ans = true;
+            }
+
+            return ans;
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -60,9 +71,19 @@ namespace ProjectManagementDeskApp.ui.controller
             {
                 MessageBox.Show("Email is required", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (IsEmailExist())
+            {
+                MessageBox.Show("Email id already exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (txtPassword.Text == "")
             {
                 MessageBox.Show("Password is required", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if (txtEmail.Text != txtConfirmEmail.Text) 
+            {
+                MessageBox.Show("Email id mismatch", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if (txtPassword.Text!=txtConfirmPassword.Text)
+            {
+                MessageBox.Show("Password mismatch", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

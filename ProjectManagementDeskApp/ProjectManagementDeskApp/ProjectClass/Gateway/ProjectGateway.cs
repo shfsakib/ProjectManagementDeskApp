@@ -44,7 +44,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO Projects(ProjectId,ProjectName,StartDate,EndDate,Priority,Progress) VALUES(@ProjectId,@ProjectName,@StartDate,@EndDate,@Priority,@Progress)", con);
+                cmd = new SqlCommand($"INSERT INTO Projects(ProjectId,ProjectName,StartDate,EndDate,Priority,Progress,AdminId) VALUES(@ProjectId,@ProjectName,@StartDate,@EndDate,@Priority,@Progress,{Properties.Settings.Default.UserId})", con);
                 cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
                 cmd.Parameters.AddWithValue("@ProjectName", ob.ProjectName);
                 cmd.Parameters.AddWithValue("@StartDate", ob.StartDate);
@@ -73,7 +73,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             {
                 if (con.State != ConnectionState.Open)
                     con.Open();
-                string query = $@"SELECT * FROM Projects WHERE (CAST(ProjectId AS nvarchar) + ' | '+ProjectName='{text}') OR (ProjectName + ' | '+CAST(ProjectId AS nvarchar)='{text}')";
+                string query = $@"SELECT * FROM Projects WHERE (CAST(ProjectId AS nvarchar) + ' | '+ProjectName='{text}') OR (ProjectName + ' | '+CAST(ProjectId AS nvarchar)='{text}') AND AdminId={Properties.Settings.Default.UserId}";
                 cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -107,7 +107,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE Projects SET ProjectName=@ProjectName,EndDate=@EndDate,Priority=@Priority,Progress=@Progress WHERE ProjectId=@ProjectId", con);
+                cmd = new SqlCommand($"UPDATE Projects SET ProjectName=@ProjectName,EndDate=@EndDate,Priority=@Priority,Progress=@Progress WHERE ProjectId=@ProjectId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@ProjectName", ob.ProjectName);
                 cmd.Parameters.AddWithValue("@EndDate", ob.EndDate);
                 cmd.Parameters.AddWithValue("@Priority", ob.Priority);
@@ -136,7 +136,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM Projects WHERE ProjectId=@ProjectId", con);
+                cmd = new SqlCommand($"DELETE FROM Projects WHERE ProjectId=@ProjectId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@ProjectId", ob.ProjectId);
 
                 cmd.Transaction = transaction;

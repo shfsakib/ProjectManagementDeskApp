@@ -111,6 +111,8 @@ namespace ProjectManagementDeskApp.ui
             }
             else
             {
+                Properties.Settings.Default.UserId =func.GenerateId($@"SELECT MAX(UserId) FROM Users");
+                Properties.Settings.Default.Save();
                 //adding value to model property
                 userModel.UserId = Convert.ToInt32(func.GenerateId($@"SELECT MAX(UserId) FROM Users"));
                 userModel.FirstName = txtFirstName.Text;

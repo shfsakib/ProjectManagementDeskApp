@@ -38,7 +38,7 @@ namespace ProjectManagementDeskApp.ui.controller
             //focus first name
             txtProjectName.Focus();
             //get userid from projects table
-            txtProjectId.Text = func.GenerateId($@"SELECT MAX(ProjectId) FROM Projects");
+            txtProjectId.Text = func.GenerateId($@"SELECT MAX(ProjectId) FROM Projects WHERE AdminId={Properties.Settings.Default.UserId}");
         }
 
         private void btnCreateProject_Click(object sender, EventArgs e)

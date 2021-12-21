@@ -39,16 +39,16 @@ namespace ProjectManagementDeskApp.ui.controller
             //autocomplete search box data from database
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users  
-WHERE UserId LIKE '%%'
+WHERE UserId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 union
 SELECT  FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar) txt FROM Users  
-WHERE FirstName LIKE '%%'
+WHERE FirstName LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 EXCEPT
 SELECT  FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar) txt FROM Users  
-WHERE UserId='{Properties.Settings.Default.UserId}'
+WHERE UserId='{Properties.Settings.Default.UserId}' AND AdminId={Properties.Settings.Default.UserId}
 EXCEPT
 SELECT  CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users  
-WHERE  UserId='{Properties.Settings.Default.UserId}'
+WHERE  UserId='{Properties.Settings.Default.UserId}' AND AdminId={Properties.Settings.Default.UserId}
 ) A");
         }
 
@@ -65,7 +65,7 @@ WHERE  UserId='{Properties.Settings.Default.UserId}'
                 txtUserId.Text = userModel.UserId.ToString();
                 txtFirstName.Text = userModel.FirstName;
                 txtLastName.Text = userModel.SurName;
-                dateDob.Text = Convert.ToDateTime(userModel.DOB).ToString("dd/MM/yyyy");
+                dateDob.Text = DateTime.ParseExact(userModel.DOB, "dd/MM/yyyy", null).ToString();
                 txtAddress.Text = userModel.Address;
                 txtEmail.Text = userModel.Email;
                 txtPassword.Text = userModel.Password;
@@ -79,7 +79,7 @@ WHERE  UserId='{Properties.Settings.Default.UserId}'
         private bool IsExist()
         {
             bool ans = false;
-            string x = func.IsExist($@"SELECT USERID FROM AssignProjects WHERE UserId='{txtUserId.Text}'");
+            string x = func.IsExist($@"SELECT USERID FROM AssignProjects WHERE UserId='{txtUserId.Text}' AND AdminId={Properties.Settings.Default.UserId}");
             if (x != "")
             {
                 ans = true;

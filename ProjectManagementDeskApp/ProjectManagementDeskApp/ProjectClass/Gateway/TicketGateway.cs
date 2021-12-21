@@ -44,7 +44,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO Ticket(TicketId,IssueDate) VALUES(@TicketId,@IssueDate)", con);
+                cmd = new SqlCommand($"INSERT INTO Ticket(TicketId,IssueDate,AdminId) VALUES(@TicketId,@IssueDate,{Properties.Settings.Default.UserId})", con);
                 cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
                 cmd.Parameters.AddWithValue("@IssueDate", ob.IssueDate);
 
@@ -69,7 +69,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             {
                 if (con.State != ConnectionState.Open)
                     con.Open();
-                string query = $@"SELECT * FROM Ticket WHERE (CAST(TicketId AS nvarchar)='{text}')";
+                string query = $@"SELECT * FROM Ticket WHERE (CAST(TicketId AS nvarchar)='{text}') AND AdminId={Properties.Settings.Default.UserId}";
                 cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
@@ -101,7 +101,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand($@"UPDATE Ticket SET TicketId=@TicketId WHERE TicketId='{id}' AND IssueDate=@IssueDate", con);
+                cmd = new SqlCommand($@"UPDATE Ticket SET TicketId=@TicketId WHERE TicketId='{id}' AND IssueDate=@IssueDate AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
                 cmd.Parameters.AddWithValue("@IssueDate", ob.IssueDate);
 
@@ -128,7 +128,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM Ticket WHERE TicketId=@TicketId", con);
+                cmd = new SqlCommand($"DELETE FROM Ticket WHERE TicketId=@TicketId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@TicketId", ob.TicketId);
 
                 cmd.Transaction = transaction;

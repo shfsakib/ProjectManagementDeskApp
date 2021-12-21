@@ -42,10 +42,10 @@ namespace ProjectManagementDeskApp.ui.controller
             //autocomplete search box data from database
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users  
-WHERE UserId LIKE '%%'
+WHERE UserId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 union
 SELECT  FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar) txt FROM Users  
-WHERE FirstName LIKE '%%' ) A");
+WHERE FirstName LIKE '%%' AND AdminId={Properties.Settings.Default.UserId} ) A");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -129,10 +129,10 @@ WHERE FirstName LIKE '%%' ) A");
             dateDob.Text = "";
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName txt FROM Users  
-WHERE UserId LIKE '%%'
+WHERE UserId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}
 union
 SELECT  FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar) txt FROM Users  
-WHERE FirstName LIKE '%%' ) A");
+WHERE FirstName LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}) A");
         }
     }
 }

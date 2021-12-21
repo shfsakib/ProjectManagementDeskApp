@@ -35,8 +35,18 @@ namespace ProjectManagementDeskApp.ui.controller
             dateEndDate.Format = DateTimePickerFormat.Custom;
             dateEndDate.CustomFormat = "dd/MM/yyyy";
             //bind combobox from database
-            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects ORDER BY Name ASC");
-            func.BindComboBox(comboCompany, "select project", $@"SELECT CompanyId ID, CAST(CompanyId AS nvarchar) + ' | ' +CompanyName NAME FROM Company ORDER BY Name ASC");
+            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
+            func.BindComboBox(comboCompany, "select project", $@"SELECT CompanyId ID, CAST(CompanyId AS nvarchar) + ' | ' +CompanyName NAME FROM Company WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
+        }
+        private bool IsAssignExist()
+        {
+            bool ans = false;
+            string x = func.IsExist($@"SELECT AssignCompanyId FROM AssignProjectToCompany WHERE ProjectId='{comboProject.SelectedValue}' AND CompanyId='{comboCompany.SelectedValue}' AND EndDate>'{DateTime.Now.ToString("dd/MM/yyyy")}' AND AdminId={Properties.Settings.Default.UserId}");
+            if (x != "")
+            {
+                ans = true;
+            }
+            return ans;
         }
         private void btnAssignProject_Click(object sender, EventArgs e)
         {
@@ -51,6 +61,10 @@ namespace ProjectManagementDeskApp.ui.controller
             else if (comboPriority.SelectedIndex < 0)
             {
                 MessageBox.Show("Priority is required", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (IsAssignExist())
+            {
+                MessageBox.Show("This project already assigned to this company", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

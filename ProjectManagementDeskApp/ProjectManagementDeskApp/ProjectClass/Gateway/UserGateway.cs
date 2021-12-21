@@ -44,7 +44,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("INSERT INTO Users(UserId,FirstName,SurName,DOB,Address,Email,Password,UserType) VALUES(@UserId,@FirstName,@SurName,@DOB,@Address,@Email,@Password,@UserType)", con);
+                cmd = new SqlCommand($"INSERT INTO Users(UserId,FirstName,SurName,DOB,Address,Email,Password,UserType,AdminId) VALUES(@UserId,@FirstName,@SurName,@DOB,@Address,@Email,@Password,@UserType,{Properties.Settings.Default.UserId})", con);
                 cmd.Parameters.AddWithValue("@UserId", ob.UserId);
                 cmd.Parameters.AddWithValue("@FirstName", ob.FirstName);
                 cmd.Parameters.AddWithValue("@SurName", ob.SurName);
@@ -74,7 +74,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
             UserModel userModel = null;
             try
             {
-                string query = $@"SELECT * FROM Users WHERE (CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName='{text}') OR (FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar)='{text}')";
+                string query = $@"SELECT * FROM Users WHERE (CAST(UserId AS nvarchar) + ' | '+FirstName+' '+SurName='{text}') OR (FirstName+' '+SurName + ' | '+CAST(UserId AS nvarchar)='{text}') AND AdminId={Properties.Settings.Default.UserId}";
                 cmd = new SqlCommand(query, con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -113,7 +113,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("UPDATE Users SET FirstName=@FirstName,SurName=@SurName,DOB=@DOB,Address=@Address,Email=@Email,Password=@Password WHERE UserId=@UserId", con);
+                cmd = new SqlCommand($"UPDATE Users SET FirstName=@FirstName,SurName=@SurName,DOB=@DOB,Address=@Address,Email=@Email,Password=@Password WHERE UserId=@UserId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@FirstName", ob.FirstName);
                 cmd.Parameters.AddWithValue("@SurName", ob.SurName);
                 cmd.Parameters.AddWithValue("@DOB", ob.DOB);
@@ -145,7 +145,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Gateway
                 if (con.State != ConnectionState.Open)
                     con.Open();
                 transaction = con.BeginTransaction();
-                cmd = new SqlCommand("DELETE FROM Users WHERE UserId=@UserId", con);
+                cmd = new SqlCommand($"DELETE FROM Users WHERE UserId=@UserId AND AdminId={Properties.Settings.Default.UserId}", con);
                 cmd.Parameters.AddWithValue("@UserId", ob.UserId);
 
                 cmd.Transaction = transaction;

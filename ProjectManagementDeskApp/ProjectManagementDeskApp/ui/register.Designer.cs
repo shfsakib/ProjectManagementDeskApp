@@ -305,6 +305,7 @@
             this.txtConfirmPassword.Location = new System.Drawing.Point(462, 419);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(210, 29);
             this.txtConfirmPassword.TabIndex = 7;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);

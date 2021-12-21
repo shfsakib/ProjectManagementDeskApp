@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataFillingSoftDeskApp.ProjectClass;
 using ProjectManagementDeskApp.ui;
+using ProjectManagementDeskApp.ui.forgot;
 
 namespace ProjectManagementDeskApp
 {
@@ -107,6 +108,7 @@ namespace ProjectManagementDeskApp
                     }
                     Properties.Settings.Default.UserName = func.IsExist($@"SELECT FirstName FROM Users WHERE Email='{txtEmail.Text}'");
                     Properties.Settings.Default.UserId = func.IsExist($@"SELECT UserId FROM Users WHERE Email='{txtEmail.Text}'");
+                    Properties.Settings.Default.UserType = func.IsExist($@"SELECT UserType FROM Users WHERE Email='{txtEmail.Text}'");
                     Properties.Settings.Default.Save();
                     //hide login form and show dashboard form
                     this.Hide();
@@ -126,6 +128,13 @@ namespace ProjectManagementDeskApp
         {
             //minimize window
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void lnkForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            forgot_email_verify forgotEmailVerify = new forgot_email_verify();
+            forgotEmailVerify.ShowDialog();
         }
     }
 }

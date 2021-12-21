@@ -32,7 +32,7 @@ namespace ProjectManagementDeskApp.ui.controller
             //autocomplete of ticket
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(TicketId AS nvarchar) txt FROM Ticket  
-WHERE TicketId LIKE '%%') A");
+WHERE TicketId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}) A");
         }
         private void btnUpdateTicket_Click(object sender, EventArgs e)
         {

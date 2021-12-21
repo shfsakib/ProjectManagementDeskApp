@@ -31,7 +31,7 @@ namespace ProjectManagementDeskApp.ui.controller
             //autocomplete of ticket
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT  CAST(TicketId AS nvarchar) txt FROM Ticket  
-WHERE TicketId LIKE '%%') A");
+WHERE TicketId LIKE '%%' AND AdminId={Properties.Settings.Default.UserId}) A");
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -63,7 +63,7 @@ WHERE TicketId LIKE '%%') A");
         private bool IsExist()
         {
             bool ans = false;
-            string x = func.IsExist($@"SELECT Ticket.TicketId FROM AssignTicketToUser INNER JOIN Ticket ON AssignTicketToUser.TicketId=Ticket.Id WHERE Ticket.TicketId='{txtTicketId.Text}'");
+            string x = func.IsExist($@"SELECT Ticket.TicketId FROM AssignTicketToUser INNER JOIN Ticket ON AssignTicketToUser.TicketId=Ticket.Id WHERE Ticket.TicketId='{txtTicketId.Text}' AND Ticket.AdminId={Properties.Settings.Default.UserId}");
             if (x != "")
             {
                 ans = true;

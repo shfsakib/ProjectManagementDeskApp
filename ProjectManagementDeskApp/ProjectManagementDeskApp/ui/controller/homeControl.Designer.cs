@@ -33,15 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelCompany = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblCompany = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblStaff = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblProject = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             // panelCompany
             // 
             this.panelCompany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.panelCompany.Controls.Add(this.label6);
+            this.panelCompany.Controls.Add(this.lblCompany);
             this.panelCompany.Controls.Add(this.label2);
             this.panelCompany.Controls.Add(this.pictureBox2);
             this.panelCompany.Location = new System.Drawing.Point(263, 215);
@@ -110,16 +110,16 @@
             this.panelCompany.Size = new System.Drawing.Size(238, 117);
             this.panelCompany.TabIndex = 1;
             // 
-            // label6
+            // lblCompany
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(81, 45);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 32);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "100";
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompany.ForeColor = System.Drawing.Color.White;
+            this.lblCompany.Location = new System.Drawing.Point(81, 45);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(57, 32);
+            this.lblCompany.TabIndex = 3;
+            this.lblCompany.Text = "100";
             // 
             // label2
             // 
@@ -145,7 +145,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(135)))));
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.lblStaff);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Location = new System.Drawing.Point(505, 215);
@@ -153,16 +153,16 @@
             this.panel1.Size = new System.Drawing.Size(230, 117);
             this.panel1.TabIndex = 2;
             // 
-            // label7
+            // lblStaff
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(90, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 32);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "100";
+            this.lblStaff.AutoSize = true;
+            this.lblStaff.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaff.ForeColor = System.Drawing.Color.White;
+            this.lblStaff.Location = new System.Drawing.Point(90, 45);
+            this.lblStaff.Name = "lblStaff";
+            this.lblStaff.Size = new System.Drawing.Size(57, 32);
+            this.lblStaff.TabIndex = 4;
+            this.lblStaff.Text = "100";
             // 
             // label4
             // 
@@ -188,7 +188,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(155)))));
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.lblProject);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Location = new System.Drawing.Point(742, 215);
@@ -196,16 +196,16 @@
             this.panel2.Size = new System.Drawing.Size(235, 117);
             this.panel2.TabIndex = 3;
             // 
-            // label8
+            // lblProject
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(90, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 32);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "100";
+            this.lblProject.AutoSize = true;
+            this.lblProject.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProject.ForeColor = System.Drawing.Color.White;
+            this.lblProject.Location = new System.Drawing.Point(90, 45);
+            this.lblProject.Name = "lblProject";
+            this.lblProject.Size = new System.Drawing.Size(57, 32);
+            this.lblProject.TabIndex = 5;
+            this.lblProject.Text = "100";
             // 
             // label5
             // 
@@ -294,11 +294,11 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCompany;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblStaff;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;

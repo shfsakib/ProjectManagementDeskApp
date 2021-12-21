@@ -39,19 +39,19 @@ namespace ProjectManagementDeskApp.ui.controller
             dateEndDate.Format = DateTimePickerFormat.Custom;
             dateEndDate.CustomFormat = "dd/MM/yyyy";
             //bind combobox from database
-            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects ORDER BY Name ASC");
-            func.BindComboBox(comboUser, "select project", $@"SELECT UserId ID, CAST(UserId AS nvarchar) + ' | ' +FirstName +' '+SurName NAME FROM Users WHERE UserType='Staff' ORDER BY Name ASC");
+            func.BindComboBox(comboProject, "select project", $@"SELECT ProjectId ID, CAST(ProjectId AS nvarchar) + ' | ' +ProjectName NAME FROM Projects WHERE AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
+            func.BindComboBox(comboUser, "select project", $@"SELECT UserId ID, CAST(UserId AS nvarchar) + ' | ' +FirstName +' '+SurName NAME FROM Users WHERE UserType='Staff' AND AdminId={Properties.Settings.Default.UserId} ORDER BY Name ASC");
             //autocomplete
             func.AutoCompleteTextBox(txtSearch, $@"select * from (
 SELECT        CAST(AssignProjects.AssignId AS nvarchar) + ' | ' +Projects.ProjectName AS txt 
 FROM            AssignProjects INNER JOIN
                          Projects ON AssignProjects.ProjectId = Projects.ProjectId
-WHERE AssignProjects.AssignId LIKE '%%'
+WHERE AssignProjects.AssignId LIKE '%%' AND AssignProjects.AdminId={Properties.Settings.Default.UserId}
 union
 SELECT      Projects.ProjectName + ' | ' +  CAST(AssignProjects.AssignId AS nvarchar) AS txt 
 FROM            AssignProjects INNER JOIN
                          Projects ON AssignProjects.ProjectId = Projects.ProjectId  
-WHERE Projects.ProjectName LIKE '%%' )A");
+WHERE Projects.ProjectName LIKE '%%'  AND AssignProjects.AdminId={Properties.Settings.Default.UserId})A");
         }
 
         private void btnDeleteAssignProject_Click(object sender, EventArgs e)
@@ -86,17 +86,7 @@ WHERE Projects.ProjectName LIKE '%%' )A");
             comboProject.SelectedIndex = comboUser.SelectedIndex = 0;
             comboPriority.Text = "-- SELECT PRIORITY --";
             txtSearch.Text = txtAssignId.Text = dateStartDate.Text = dateEndDate.Text = "";
-            //autocomplete
-            func.AutoCompleteTextBox(txtSearch, $@"select * from (
-SELECT        CAST(AssignProjects.AssignId AS nvarchar) + ' | ' +Projects.ProjectName AS txt 
-FROM            AssignProjects INNER JOIN
-                         Projects ON AssignProjects.ProjectId = Projects.ProjectId
-WHERE AssignProjects.AssignId LIKE '%%'
-union
-SELECT      Projects.ProjectName + ' | ' +  CAST(AssignProjects.AssignId AS nvarchar) AS txt 
-FROM            AssignProjects INNER JOIN
-                         Projects ON AssignProjects.ProjectId = Projects.ProjectId  
-WHERE Projects.ProjectName LIKE '%%' )A");
+            InitialCode();
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
