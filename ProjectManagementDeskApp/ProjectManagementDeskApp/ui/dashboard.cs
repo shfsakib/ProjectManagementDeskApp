@@ -35,12 +35,12 @@ namespace ProjectManagementDeskApp.ui
             if (Properties.Settings.Default.UserType != "Admin")
             {
                 panelCreate.Visible = panelAssign.Visible = panelUpdate.Visible = panelDelete.Visible = btnReport.Visible = btnView.Visible = btnPrediction.Visible = false;
-                btnAssignedProject.Visible = btnAssignedTicket.Visible=btnCompanies.Visible = true;
+                btnAssignedProject.Visible = btnAssignedTicket.Visible = btnCompanies.Visible = btnUsers.Visible = true;
             }
             else
             {
                 panelCreate.Visible = panelAssign.Visible = panelUpdate.Visible = panelDelete.Visible = btnReport.Visible = btnView.Visible = btnPrediction.Visible = true;
-                btnAssignedProject.Visible = btnAssignedTicket.Visible = btnCompanies.Visible = false;
+                btnAssignedProject.Visible = btnAssignedTicket.Visible = btnCompanies.Visible = btnUsers.Visible = false;
             }
             //set user name on label
             lblUserName.Text = Properties.Settings.Default.UserName;
@@ -434,6 +434,13 @@ namespace ProjectManagementDeskApp.ui
             companies companies = new companies();
             panelChildContainer.Controls.Clear();
             panelChildContainer.Controls.Add(companies);
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            users users = new users();
+            panelChildContainer.Controls.Clear();
+            panelChildContainer.Controls.Add(users);
         }
     }
 }

@@ -40,6 +40,7 @@
             this.btnCreateCom = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnCreateProject = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnCreateTicket = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -53,8 +54,10 @@
             this.btnAssignProToCom = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnAssignProjectToUser = new System.Windows.Forms.Button();
+            this.btnAssign = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.panelUpdate = new System.Windows.Forms.Panel();
@@ -65,6 +68,7 @@
             this.btnUpdateCompany = new System.Windows.Forms.Button();
             this.btnUpdateAssignProToUser = new System.Windows.Forms.Button();
             this.btnUpdateUser = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panelDelete = new System.Windows.Forms.Panel();
             this.btnDeleteAssignTickToUser = new System.Windows.Forms.Button();
             this.btnDeleteCompany = new System.Windows.Forms.Button();
@@ -73,28 +77,25 @@
             this.btnDeleteTicket = new System.Windows.Forms.Button();
             this.btnDeleteProject = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnPrediction = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.btnAssignedProject = new System.Windows.Forms.Button();
             this.btnAssignedTicket = new System.Windows.Forms.Button();
+            this.btnCompanies = new System.Windows.Forms.Button();
             this.assignTimer = new System.Windows.Forms.Timer(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.containerPanel = new System.Windows.Forms.Panel();
-            this.updateTimer = new System.Windows.Forms.Timer(this.components);
-            this.deleteTimer = new System.Windows.Forms.Timer(this.components);
-            this.panelChildContainer = new System.Windows.Forms.Panel();
             this.btnDashClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnAssign = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnCompanies = new System.Windows.Forms.Button();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.containerPanel = new System.Windows.Forms.Panel();
+            this.panelChildContainer = new System.Windows.Forms.Panel();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.deleteTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnUsers = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panelCreate.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -107,12 +108,12 @@
             this.panel6.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelUpdate.SuspendLayout();
             this.panelDelete.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.containerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.containerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -228,6 +229,25 @@
             this.btnCreateProject.Text = "Create Project";
             this.btnCreateProject.UseVisualStyleBackColor = false;
             this.btnCreateProject.Click += new System.EventHandler(this.btnCreateProject_Click);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
+            this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCreate.FlatAppearance.BorderSize = 0;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.ForeColor = System.Drawing.Color.White;
+            this.btnCreate.Image = global::ProjectManagementDeskApp.Properties.Resources.up4;
+            this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCreate.Location = new System.Drawing.Point(0, 0);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(218, 48);
+            this.btnCreate.TabIndex = 14;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // panel9
             // 
@@ -385,6 +405,25 @@
             this.btnAssignProjectToUser.UseVisualStyleBackColor = false;
             this.btnAssignProjectToUser.Click += new System.EventHandler(this.btnAssignProjectToUser_Click);
             // 
+            // btnAssign
+            // 
+            this.btnAssign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
+            this.btnAssign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAssign.FlatAppearance.BorderSize = 0;
+            this.btnAssign.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnAssign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssign.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssign.ForeColor = System.Drawing.Color.White;
+            this.btnAssign.Image = global::ProjectManagementDeskApp.Properties.Resources.up3;
+            this.btnAssign.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAssign.Location = new System.Drawing.Point(0, 0);
+            this.btnAssign.Name = "btnAssign";
+            this.btnAssign.Size = new System.Drawing.Size(218, 48);
+            this.btnAssign.TabIndex = 16;
+            this.btnAssign.Text = "Assign";
+            this.btnAssign.UseVisualStyleBackColor = false;
+            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
@@ -401,6 +440,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnAssignedProject);
             this.flowLayoutPanel1.Controls.Add(this.btnAssignedTicket);
             this.flowLayoutPanel1.Controls.Add(this.btnCompanies);
+            this.flowLayoutPanel1.Controls.Add(this.btnUsers);
             this.flowLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 7);
@@ -416,6 +456,16 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(220, 72);
             this.panel16.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProjectManagementDeskApp.Properties.Resources.Attachment_1639365702;
+            this.pictureBox1.Location = new System.Drawing.Point(3, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(217, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // panel8
             // 
@@ -585,6 +635,25 @@
             this.btnUpdateUser.UseVisualStyleBackColor = false;
             this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::ProjectManagementDeskApp.Properties.Resources.up3;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.Location = new System.Drawing.Point(0, 0);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(218, 48);
+            this.btnUpdate.TabIndex = 22;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // panelDelete
             // 
             this.panelDelete.Controls.Add(this.btnDeleteAssignTickToUser);
@@ -728,6 +797,25 @@
             this.btnDeleteUser.UseVisualStyleBackColor = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = global::ProjectManagementDeskApp.Properties.Resources.up3;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.Location = new System.Drawing.Point(0, 0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(218, 48);
+            this.btnDelete.TabIndex = 26;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnReport
             // 
             this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
@@ -819,6 +907,24 @@
             this.btnAssignedTicket.UseVisualStyleBackColor = false;
             this.btnAssignedTicket.Click += new System.EventHandler(this.btnAssignedTicket_Click);
             // 
+            // btnCompanies
+            // 
+            this.btnCompanies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
+            this.btnCompanies.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCompanies.FlatAppearance.BorderSize = 0;
+            this.btnCompanies.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnCompanies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompanies.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompanies.ForeColor = System.Drawing.Color.White;
+            this.btnCompanies.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCompanies.Location = new System.Drawing.Point(3, 657);
+            this.btnCompanies.Name = "btnCompanies";
+            this.btnCompanies.Size = new System.Drawing.Size(218, 48);
+            this.btnCompanies.TabIndex = 36;
+            this.btnCompanies.Text = "Companies";
+            this.btnCompanies.UseVisualStyleBackColor = false;
+            this.btnCompanies.Click += new System.EventHandler(this.btnCompanies_Click);
+            // 
             // assignTimer
             // 
             this.assignTimer.Interval = 20;
@@ -837,49 +943,6 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(1043, 48);
             this.panel15.TabIndex = 17;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(52, 13);
-            this.lblUserName.MaximumSize = new System.Drawing.Size(170, 21);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(130, 21);
-            this.lblUserName.TabIndex = 13;
-            this.lblUserName.Text = "Hello, Moham...";
-            this.toolTip1.SetToolTip(this.lblUserName, "User Name");
-            // 
-            // containerPanel
-            // 
-            this.containerPanel.Controls.Add(this.panelChildContainer);
-            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerPanel.Location = new System.Drawing.Point(251, 55);
-            this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Padding = new System.Windows.Forms.Padding(20);
-            this.containerPanel.Size = new System.Drawing.Size(1043, 638);
-            this.containerPanel.TabIndex = 18;
-            // 
-            // updateTimer
-            // 
-            this.updateTimer.Interval = 20;
-            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
-            // 
-            // deleteTimer
-            // 
-            this.deleteTimer.Interval = 20;
-            this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
-            // 
-            // panelChildContainer
-            // 
-            this.panelChildContainer.BackColor = System.Drawing.Color.White;
-            this.panelChildContainer.BackgroundImage = global::ProjectManagementDeskApp.Properties.Resources.bg_radius;
-            this.panelChildContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelChildContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildContainer.Location = new System.Drawing.Point(20, 20);
-            this.panelChildContainer.Name = "panelChildContainer";
-            this.panelChildContainer.Size = new System.Drawing.Size(1003, 598);
-            this.panelChildContainer.TabIndex = 0;
             // 
             // btnDashClose
             // 
@@ -929,109 +992,66 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // lblUserName
             // 
-            this.pictureBox1.Image = global::ProjectManagementDeskApp.Properties.Resources.Attachment_1639365702;
-            this.pictureBox1.Location = new System.Drawing.Point(3, -3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Location = new System.Drawing.Point(52, 13);
+            this.lblUserName.MaximumSize = new System.Drawing.Size(170, 21);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(130, 21);
+            this.lblUserName.TabIndex = 13;
+            this.lblUserName.Text = "Hello, Moham...";
+            this.toolTip1.SetToolTip(this.lblUserName, "User Name");
             // 
-            // btnCreate
+            // containerPanel
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
-            this.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCreate.FlatAppearance.BorderSize = 0;
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Image = global::ProjectManagementDeskApp.Properties.Resources.up4;
-            this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCreate.Location = new System.Drawing.Point(0, 0);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(218, 48);
-            this.btnCreate.TabIndex = 14;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = false;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            this.containerPanel.Controls.Add(this.panelChildContainer);
+            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.containerPanel.Location = new System.Drawing.Point(251, 55);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Padding = new System.Windows.Forms.Padding(20);
+            this.containerPanel.Size = new System.Drawing.Size(1043, 638);
+            this.containerPanel.TabIndex = 18;
             // 
-            // btnAssign
+            // panelChildContainer
             // 
-            this.btnAssign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
-            this.btnAssign.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAssign.FlatAppearance.BorderSize = 0;
-            this.btnAssign.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnAssign.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAssign.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssign.ForeColor = System.Drawing.Color.White;
-            this.btnAssign.Image = global::ProjectManagementDeskApp.Properties.Resources.up3;
-            this.btnAssign.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAssign.Location = new System.Drawing.Point(0, 0);
-            this.btnAssign.Name = "btnAssign";
-            this.btnAssign.Size = new System.Drawing.Size(218, 48);
-            this.btnAssign.TabIndex = 16;
-            this.btnAssign.Text = "Assign";
-            this.btnAssign.UseVisualStyleBackColor = false;
-            this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
+            this.panelChildContainer.BackColor = System.Drawing.Color.White;
+            this.panelChildContainer.BackgroundImage = global::ProjectManagementDeskApp.Properties.Resources.bg_radius;
+            this.panelChildContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelChildContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildContainer.Location = new System.Drawing.Point(20, 20);
+            this.panelChildContainer.Name = "panelChildContainer";
+            this.panelChildContainer.Size = new System.Drawing.Size(1003, 598);
+            this.panelChildContainer.TabIndex = 0;
             // 
-            // btnUpdate
+            // updateTimer
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = global::ProjectManagementDeskApp.Properties.Resources.up3;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 0);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(218, 48);
-            this.btnUpdate.TabIndex = 22;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.updateTimer.Interval = 20;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
-            // btnDelete
+            // deleteTimer
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::ProjectManagementDeskApp.Properties.Resources.up3;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.Location = new System.Drawing.Point(0, 0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(218, 48);
-            this.btnDelete.TabIndex = 26;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.deleteTimer.Interval = 20;
+            this.deleteTimer.Tick += new System.EventHandler(this.deleteTimer_Tick);
             // 
-            // btnCompanies
+            // btnUsers
             // 
-            this.btnCompanies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
-            this.btnCompanies.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCompanies.FlatAppearance.BorderSize = 0;
-            this.btnCompanies.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
-            this.btnCompanies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompanies.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompanies.ForeColor = System.Drawing.Color.White;
-            this.btnCompanies.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCompanies.Location = new System.Drawing.Point(3, 657);
-            this.btnCompanies.Name = "btnCompanies";
-            this.btnCompanies.Size = new System.Drawing.Size(218, 48);
-            this.btnCompanies.TabIndex = 36;
-            this.btnCompanies.Text = "Companies";
-            this.btnCompanies.UseVisualStyleBackColor = false;
-            this.btnCompanies.Click += new System.EventHandler(this.btnCompanies_Click);
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(78)))));
+            this.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(168)))), ((int)(((byte)(253)))));
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUsers.Location = new System.Drawing.Point(3, 711);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(218, 48);
+            this.btnUsers.TabIndex = 37;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // dashboard
             // 
@@ -1064,13 +1084,13 @@
             this.panel6.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelUpdate.ResumeLayout(false);
             this.panelDelete.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.containerPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.containerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1142,5 +1162,6 @@
         private System.Windows.Forms.Button btnAssignedProject;
         private System.Windows.Forms.Button btnAssignedTicket;
         private System.Windows.Forms.Button btnCompanies;
+        private System.Windows.Forms.Button btnUsers;
     }
 }

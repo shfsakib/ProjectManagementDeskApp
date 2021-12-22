@@ -267,6 +267,12 @@
     <Compile Include="ui\controller\update-user.Designer.cs">
       <DependentUpon>update-user.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\controller\users.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\users.Designer.cs">
+      <DependentUpon>users.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\controller\view-data.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\update-user.resx">
       <DependentUpon>update-user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\users.resx">
+      <DependentUpon>users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\view-data.resx">
       <DependentUpon>view-data.cs</DependentUpon>
