@@ -193,25 +193,25 @@ FROM            AssignProjects INNER JOIN
                     projectReportViewModel.Progress = reader["Progress"].ToString();
                     if (projectReportViewModel.Progress == "0" || projectReportViewModel.Progress == "0%")
                     {
-                        projectReportViewModel.ProgressUrl = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\ProgressImage\\0.png";
+                        projectReportViewModel.ProgressUrl = Properties.Resources._0;
                     }
                     else if (projectReportViewModel.Progress == "25" || projectReportViewModel.Progress == "25%")
                     {
-                        projectReportViewModel.ProgressUrl = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\ProgressImage\\25.png";
+                        projectReportViewModel.ProgressUrl = Properties.Resources._25;
                     }
                     else if (projectReportViewModel.Progress == "50" || projectReportViewModel.Progress == "50%")
                     {
-                        projectReportViewModel.ProgressUrl = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\ProgressImage\\50.png";
+                        projectReportViewModel.ProgressUrl = Properties.Resources._50;
 
                     }
                     else if (projectReportViewModel.Progress == "75" || projectReportViewModel.Progress == "75%")
                     {
-                        projectReportViewModel.ProgressUrl = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\ProgressImage\\75.png";
+                        projectReportViewModel.ProgressUrl = Properties.Resources._75;
 
                     }
                     else if (projectReportViewModel.Progress == "100" || projectReportViewModel.Progress == "100%")
                     {
-                        projectReportViewModel.ProgressUrl = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\ProgressImage\\100.png";
+                        projectReportViewModel.ProgressUrl = Properties.Resources._100;
                     }
                     projectReportViewModelList.Add(projectReportViewModel);
                 }

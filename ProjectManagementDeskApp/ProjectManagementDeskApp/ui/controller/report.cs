@@ -88,9 +88,9 @@ SELECT 0 Progress,COUNT(ProjectId) Total FROM Projects)A");
                 string FirstName = model.FirstName;
                 string SurName = model.SurName;
                 string projectAssigned = model.ProjectAssignedTo;
-                string progress = model.ProgressUrl;
+                Image progress = model.ProgressUrl;
                 string priority = model.Priority;
-                dataProjectGrid.Rows.Add(userId, FirstName, SurName, projectAssigned, File.ReadAllBytes(progress), priority);
+                dataProjectGrid.Rows.Add(userId, FirstName, SurName, projectAssigned, progress, priority);
             }
             dataProjectGrid.Columns[3].Width = 250;
         }
@@ -115,9 +115,9 @@ SELECT 0 Progress,COUNT(ProjectId) Total FROM Projects)A");
                         string FirstName = model.FirstName;
                         string SurName = model.SurName;
                         string projectAssigned = model.ProjectAssignedTo;
-                        string progress = model.ProgressUrl;
+                        Image progress = model.ProgressUrl;
                         string priority = model.Priority;
-                        dataProjectGrid.Rows.Add(userId, FirstName, SurName, projectAssigned, File.ReadAllBytes(progress), priority);
+                        dataProjectGrid.Rows.Add(userId, FirstName, SurName, projectAssigned, progress, priority);
 
                     }
                 }

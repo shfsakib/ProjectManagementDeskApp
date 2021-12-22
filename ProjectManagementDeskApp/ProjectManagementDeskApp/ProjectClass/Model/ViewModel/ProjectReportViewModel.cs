@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace ProjectManagementDeskApp.ProjectClass.Model.ViewModel
         public string FirstName { get; set; }
         public string SurName { get; set; }
         public string ProjectAssignedTo { get; set; }
-        public string ProgressUrl { get; set; }
+        public Image ProgressUrl { get; set; }
         public string Progress { get; set; }
         public string Priority { get; set; }
     }
