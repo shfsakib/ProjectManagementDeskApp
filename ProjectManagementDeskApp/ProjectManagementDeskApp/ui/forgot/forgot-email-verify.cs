@@ -68,7 +68,7 @@ namespace ProjectManagementDeskApp.ui.forgot
 
             return ans;
         }
-        
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (!func.IsConnected())
@@ -87,9 +87,7 @@ namespace ProjectManagementDeskApp.ui.forgot
                     MessageBox.Show("Email id does\'t exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                lblWait.Visible = true;
-
+                btnSubmit.Text = "Please wait...";
                 btnSubmit.Enabled = false;
                 Properties.Settings.Default.Code = RandomString(8, false);
                 Properties.Settings.Default.Save();

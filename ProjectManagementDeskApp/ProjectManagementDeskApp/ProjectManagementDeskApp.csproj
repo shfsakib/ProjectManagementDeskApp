@@ -53,6 +53,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +83,7 @@
     <Compile Include="ProjectClass\Model\ViewModel\AssignProjectCompanyViewModel.cs" />
     <Compile Include="ProjectClass\Model\ViewModel\AssignProjectViewModel.cs" />
     <Compile Include="ProjectClass\Model\ViewModel\AssignTicketToUserViewModel.cs" />
+    <Compile Include="ProjectClass\Model\ViewModel\ProjectReportViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +118,12 @@
     </Compile>
     <Compile Include="ui\controller\assigned-ticket.Designer.cs">
       <DependentUpon>assigned-ticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\companies.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\companies.Designer.cs">
+      <DependentUpon>companies.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\controller\create-company.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +202,12 @@
     </Compile>
     <Compile Include="ui\controller\prediction.Designer.cs">
       <DependentUpon>prediction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\controller\report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\controller\report.Designer.cs">
+      <DependentUpon>report.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\controller\update-assigned-project-to-company.cs">
       <SubType>UserControl</SubType>
@@ -296,6 +310,9 @@
     <EmbeddedResource Include="ui\controller\assigned-ticket.resx">
       <DependentUpon>assigned-ticket.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\companies.resx">
+      <DependentUpon>companies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\create-company.resx">
       <DependentUpon>create-company.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\prediction.resx">
       <DependentUpon>prediction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\controller\report.resx">
+      <DependentUpon>report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\controller\update-assigned-project-to-company.resx">
       <DependentUpon>update-assigned-project-to-company.cs</DependentUpon>

@@ -44,7 +44,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.lblWait = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -220,23 +219,11 @@
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // lblWait
-            // 
-            this.lblWait.AutoSize = true;
-            this.lblWait.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWait.Location = new System.Drawing.Point(230, 241);
-            this.lblWait.Name = "lblWait";
-            this.lblWait.Size = new System.Drawing.Size(85, 19);
-            this.lblWait.TabIndex = 27;
-            this.lblWait.Text = "Please wait...";
-            this.lblWait.Visible = false;
-            // 
             // forgot_email_verify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 380);
-            this.Controls.Add(this.lblWait);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.panelUserName);
             this.Controls.Add(this.pictureBox1);
@@ -281,6 +268,5 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Label lblWait;
     }
 }
